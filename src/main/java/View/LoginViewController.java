@@ -57,7 +57,7 @@ public class LoginViewController extends AView{
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setTitle("Welcome to Tick-It ! ! !");
                     Scene scene1 = new Scene(root1,484,400);
-                    scene1.getStylesheets().add(getClass().getResource("/stylesheet.css").toExternalForm());
+                    scene1.getStylesheets().add(getClass().getResource("/home_stylesheet.css").toExternalForm());
                     stage.setScene(scene1);
                     stage.show();
                 }

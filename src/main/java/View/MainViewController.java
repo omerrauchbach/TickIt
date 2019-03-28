@@ -1,11 +1,7 @@
 package View;
 
 import Controllers.Controller;
-import Controllers.LoginController;
-import Controllers.VacationController;
 import Model.IModel;
-import Model.LoginModel;
-import Model.VacationModel;
 import Model.Model;
 import Model.User;
 import javafx.fxml.FXML;
@@ -37,7 +33,6 @@ public class MainViewController extends AView {
      */
     public void Login(ActionEvent actionEvent){
 
-        LoginController loginController=(LoginController)this.controller;
         if(user.getText().length()==0||password.getText().length()==0){
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Error!");
@@ -52,6 +47,8 @@ public class MainViewController extends AView {
         }
         else {
             if(true){//success
+                user.setText("");
+                password.setText("");
                 IModel model = new Model();
                 ViewController mainview=new ViewController();
                 Controller controller = new Controller(model,mainview);
@@ -64,8 +61,8 @@ public class MainViewController extends AView {
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setTitle("Welcome to Tick-It ! ! !");
-                    Scene scene1 = new Scene(root1,480,400);
-                    scene1.getStylesheets().add(getClass().getResource("/stylesheet.css").toExternalForm());
+                    Scene scene1 = new Scene(root1,500,500);
+                    scene1.getStylesheets().add(getClass().getResource("/home_stylesheet.css").toExternalForm());
                     stage.setScene(scene1);
                     stage.show();
                 }

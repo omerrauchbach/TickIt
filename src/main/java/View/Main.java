@@ -31,6 +31,7 @@ public class Main extends Application {
             Parent root = fxmlLoader.load(getClass().getResource("/Main.fxml").openStream());
             primaryStage.setTitle("Tick-it");
             Scene scene=new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/login_stylesheet.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
         }
@@ -95,36 +96,7 @@ public class Main extends Application {
         // SQL statement for creating a new table
 
         String sql = "CREATE TABLE IF NOT EXISTS Users (\n"
-                + "   user_name text PRIMARY KEY,\n"
-                + "   password text NOT NULL,\n"
-                + "   first_name text NOT NULL,\n"
-                + "   last_name text NOT NULL,\n"
-                + "   city text NOT NULL,\n"
-                + "   birthdate text NOT NULL\n"
-                + ");";
-
-        try (Connection conn = DriverManager.getConnection(url);
-             Statement stmt = conn.createStatement()) {
-            // create a new table
-            stmt.execute(sql);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void createNewPaymentTable() {
-        // SQLite connection string
-        String url = "jdbc:sqlite:Users.db";
-
-        // SQL statement for creating a new table
-
-        String sql = "CREATE TABLE IF NOT EXISTS Payments (\n"
-                + "   id text PRIMARY KEY,\n"
-                + "   user_name text NOT NULL,\n"
-                + "   password text NOT NULL,\n"
-                + "   seller text NOT NULL,\n"
-                + "   buyer text NOT NULL,\n"
-                + "   amountOfMoney text NOT NULL\n"
+                + "   user_name text PRIMARY KEY\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -171,12 +143,13 @@ public class Main extends Application {
         // SQL statement for creating a new table
 
         String sql = "CREATE TABLE IF NOT EXISTS Requests (\n"
+                + "   request_id text PRIMARY KEY NOT NULL,\n"
                 + "   sender text NOT NULL,\n"
                 + "   reciever text NOT NULL,\n"
-                + "   seen integer NOT NULL,\n"
-                + "   kind integer NOT NULL,\n"
-                + "   vacation_ID_source integer NOT NULL,\n"
-                + "   vacation_ID_dest integer NOT NULL\n"
+                + "   closed integer NOT NULL,\n"
+                + "   trade integer NOT NULL,\n"
+                + "   request_ticket_id integer NOT NULL,\n"
+                + "   offered_ticket_id integer\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -229,7 +202,6 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
         AddRowToDeatils();
-
     }
 
     public static void AddRowToDeatils() {
@@ -262,7 +234,6 @@ public class Main extends Application {
         createNewDatabase("Users.db");
         createNewTable();
         createNewVacationTable();
-        createNewPaymentTable();
         createNewMessageTable();
         createNewRequestTable();
         createdetailsTable();

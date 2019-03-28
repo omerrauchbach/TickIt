@@ -15,6 +15,9 @@ import Model.User;
 
 import javafx.event.ActionEvent;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -24,6 +27,7 @@ import java.io.IOException;
 public class ViewController extends AView {
 
     private User user;
+    public Button logOutButton;
 
 
     public void setUser(User user) {
@@ -31,42 +35,38 @@ public class ViewController extends AView {
     }
 
     @FXML
-    private void openReadForm(){
+    private void openReadForm() {
         IModel model = new Model();
-        MainViewController mainview=new MainViewController();
-        Controller controller = new Controller(model,mainview);
+        MainViewController mainview = new MainViewController();
+        Controller controller = new Controller(model, mainview);
         mainview.setController(controller);
-        try{
+        try {
             Stage stage = new Stage();
-            FXMLLoader fxmlLoader=new FXMLLoader();
+            FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("/ReadUser-OLD.fxml").openStream());
             stage.setTitle("Vacation4U - ReadUser");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root, 500, 500));
             stage.show();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-
     /**
-     *
-     * @param event
-     * the function opens the update form of the user
+     * @param event the function opens the update form of the user
      */
     @FXML
-    private void openUpdateForm(ActionEvent event){
+    private void openUpdateForm(ActionEvent event) {
         IModel model = new Model();
-        MainViewController mainview=new MainViewController();
-        Controller controller = new Controller(model,mainview);
+        MainViewController mainview = new MainViewController();
+        Controller controller = new Controller(model, mainview);
         mainview.setController(controller);
-        try{
-            FXMLLoader fxmlLoader=new FXMLLoader();
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root1 = fxmlLoader.load(getClass().getResource("/UpdateUser-OLD.fxml").openStream());
-            UpdateController controller1=fxmlLoader.<UpdateController>getController();
+            UpdateController controller1 = fxmlLoader.<UpdateController>getController();
             controller1.setUser(user);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -75,28 +75,25 @@ public class ViewController extends AView {
             stage.setScene(new Scene(root1));
             stage.show();
             controller1.start();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
 
 
     }
 
     /**
-     *
      * @param event by choosing the delete option in view.fxml
      *              The function open new scene.
      */
     @FXML
     private void openDeleteForm(ActionEvent event) {
         IModel model = new Model();
-        MainViewController mainview=new MainViewController();
-        Controller controller = new Controller(model,mainview);
+        MainViewController mainview = new MainViewController();
+        Controller controller = new Controller(model, mainview);
         mainview.setController(controller);
         try {
-            FXMLLoader fxmlLoader=new FXMLLoader();
+            FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root1 = fxmlLoader.load(getClass().getResource("/DeleteUser-OLD.fxml").openStream());
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -105,8 +102,7 @@ public class ViewController extends AView {
             stage.show();
 
 
-        }
-        catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
 
         }
@@ -115,20 +111,19 @@ public class ViewController extends AView {
 
     public void openSearchVacationForm(ActionEvent actionEvent) {
         VacationModel model = new VacationModel();
-        SearchVacController view=new SearchVacController();
-        VacationController controller = new VacationController(user,model,view);
+        SearchVacController view = new SearchVacController();
+        VacationController controller = new VacationController(user, model, view);
         view.setController(controller);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root1 = fxmlLoader.load(getClass().getResource("/SearchVacation.fxml").openStream());
-            SearchVacController controller1=fxmlLoader.<SearchVacController>getController();
+            SearchVacController controller1 = fxmlLoader.<SearchVacController>getController();
             controller1.setUser(user);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Search For Ticket");
             stage.setScene(new Scene(root1));
             stage.show();
-
         }
         catch (Exception e){
             e.printStackTrace();
@@ -138,13 +133,13 @@ public class ViewController extends AView {
 
     public void openMessages(ActionEvent actionEvent) {
         MessageModel model = new MessageModel();
-        MessagesViewController view=new MessagesViewController ();
-        MessagesController controller = new MessagesController(model,view);
+        MessagesViewController view = new MessagesViewController();
+        MessagesController controller = new MessagesController(model, view);
         view.setController(controller);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root1 = fxmlLoader.load(getClass().getResource("/Messages.fxml").openStream());
-            MessagesViewController controller1=fxmlLoader.<MessagesViewController>getController();
+            MessagesViewController controller1 = fxmlLoader.<MessagesViewController>getController();
             controller1.setUser(user);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -152,37 +147,35 @@ public class ViewController extends AView {
             stage.setScene(new Scene(root1));
             stage.show();
         }
-
         catch (IOException e){
         }
     }
 
     public void openRequests(ActionEvent actionEvent) {
         MessageModel model = new MessageModel();
-        MessagesViewController view=new MessagesViewController ();
-        MessagesController controller = new MessagesController(model,view);
+        MessagesViewController view = new MessagesViewController();
+        MessagesController controller = new MessagesController(model, view);
         view.setController(controller);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root1 = fxmlLoader.load(getClass().getResource("/Messages.fxml").openStream());
-            MessagesViewController controller1=fxmlLoader.<MessagesViewController>getController();
+            MessagesViewController controller1 = fxmlLoader.<MessagesViewController>getController();
             controller1.setUser(user);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Messages:");
             stage.setScene(new Scene(root1));
             stage.show();
-        }
-
-        catch (IOException e){
+        } catch (IOException e) {
 
         }
 
     }
+
     public void openNewVacationForm(ActionEvent actionEvent) {
         VacationModel model = new VacationModel();
-        SearchVacController view=new SearchVacController();
-        VacationController controller = new VacationController(user,model,view);
+        SearchVacController view = new SearchVacController();
+        VacationController controller = new VacationController(user, model, view);
         view.setController(controller);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -192,10 +185,16 @@ public class ViewController extends AView {
             stage.setTitle("CreateMessage New Vacation");
             stage.setScene(new Scene(root1));
             stage.show();
+        } catch (IOException e) {
         }
-        catch (IOException e){
+    }
 
+    public void logOut(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.OK) {
+            Stage stage = (Stage)logOutButton.getScene().getWindow();
+            stage.close();
         }
-
     }
 }
