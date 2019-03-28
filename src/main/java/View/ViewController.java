@@ -130,8 +130,8 @@ public class ViewController extends AView {
             stage.show();
 
         }
-        catch (IOException e){
-
+        catch (Exception e){
+            e.printStackTrace();
         }
 
     }

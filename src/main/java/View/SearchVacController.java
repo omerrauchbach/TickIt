@@ -36,19 +36,30 @@ public class SearchVacController extends AView {
     private TitledPane accord;
     private Rectangle clipRect;
 
+
+    @FXML
+    private DatePicker DepartureDate;
+
     //Vacation information:
     @FXML
     private ComboBox<String> subject;
+    @FXML
+    private TableColumn idCol;
+    @FXML
+    private TableColumn subjectCol;
+    @FXML
+    private TableColumn subTopicCol;
+    @FXML
+    private TableColumn numberCol;
+    @FXML
+    private TableColumn locationCol;
+    @FXML
+    private TableColumn dateCol;
+    @FXML
+    private TableColumn timeCol;
+    @FXML
+    private TableColumn userNameCol;
 
-    @FXML
-    private DatePicker varDate;
-    @FXML
-    private TableColumn depDateCol;
-
-    @FXML
-    private ComboBox<String> includeReturn;
-    @FXML
-    private DatePicker ReturnDate;
     @FXML
     private Button searchNotEx;
 
@@ -72,7 +83,7 @@ public class SearchVacController extends AView {
         extendableSearchPane.setClip(clipRect);
         extendableSearchPane.translateYProperty().set(-heightInitial);
         extendableSearchPane.prefHeightProperty().set(0);
-        accord.setExpanded(false);
+        //accord.setExpanded(false);
         clipRect.setWidth(extendableSearchPane.getWidth());
         toggleExtendableSearch();
         searchNotEx.setVisible(true);
@@ -145,8 +156,7 @@ public class SearchVacController extends AView {
                 };
         VacationController controller = (VacationController) this.controller;
         actionCol.setCellFactory(cellFactory);
-        List<Vacation> vacList = controller.Search("", "", "", "",
-                "", "", -1, -1, -1, "", "", -1,"");
+        List<Vacation> vacList = controller.Search("", "");
 
 
         ObservableList<Vacation> vacObsList = FXCollections.observableArrayList();
@@ -206,33 +216,53 @@ public class SearchVacController extends AView {
         }
     }
 
-    public void withReturn(ActionEvent ae) {
-
-        if (includeReturn.getValue().equals("yes")) {
-            ReturnDate.setDisable(false);
-        } else {
-            ReturnDate.setDisable(true);
-        }
-    }
-
     @FXML
     private void search(ActionEvent ae) {
         String flightCompany = "", departureDate = "", backDate = "", baggageIncluded = "",
-                ticket = "", flightBackIncluded = "", vacationKind = "", hotelIncluded = "", hotelKind="";
+                ticket = "", flightBackIncluded = "", vacationKind = "", hotelIncluded = "", hotelKind = "";
         int numOfTicketsAdult = -1, numOfTicketsChild = -1, numOfTicketsBaby = -1, rankOfHotel = -1;
         /**get the information from the view objects:**/
         {
             if (subject.getValue() != null && !subject.getValue().equals("-None")) {
                 ticket = subject.getValue();
             }
-            if (varDate.getValue() != null) {
-                departureDate = varDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            if (DepartureDate.getValue() != null) {
+                departureDate = DepartureDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             }
         }//get the information from the view object
         VacationController controller = (VacationController) this.controller;
-        List<Vacation> vacList = controller.Search(flightCompany, departureDate, backDate, baggageIncluded,
-                ticket, flightBackIncluded, numOfTicketsAdult, numOfTicketsChild, numOfTicketsBaby, vacationKind, hotelIncluded, rankOfHotel,hotelKind);
+        List<Vacation> vacList = controller.Search(ticket, departureDate);
 
+
+        ObservableList<Vacation> vacObsList = FXCollections.observableArrayList();
+        vacObsList.addAll(vacList);
+        {
+
+
+            idCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+            vacTable.setItems(vacObsList);
+
+            userNameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+            vacTable.setItems(vacObsList);
+
+            subjectCol.setCellValueFactory(new PropertyValueFactory<>("Subject"));
+            vacTable.setItems(vacObsList);
+
+            subTopicCol.setCellValueFactory(new PropertyValueFactory<>("SubTopic"));
+            vacTable.setItems(vacObsList);
+
+            numberCol.setCellValueFactory(new PropertyValueFactory<>("numberOfTickets"));
+            vacTable.setItems(vacObsList);
+
+            locationCol.setCellValueFactory(new PropertyValueFactory<>("Location"));
+            vacTable.setItems(vacObsList);
+
+            dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
+            vacTable.setItems(vacObsList);
+
+            timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
+            vacTable.setItems(vacObsList);
+        }
     }
 
     private EventHandler<ActionEvent> createBouncingEffect(double height) {

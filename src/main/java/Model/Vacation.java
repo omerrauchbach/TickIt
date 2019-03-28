@@ -28,6 +28,19 @@ public class Vacation {
         id=getFromDataBaseAndUpdate();
     }
 
+    public Vacation(int id,String varSubject, String varSubTopic, String varPrice, String varLocation,
+                    String varNumber, String varTime, String varDate, String username) {
+        this.varSubject = varSubject;
+        this.varSubTopic = varSubTopic;
+        this.varPrice = varPrice;
+        this.varLocation = varLocation;
+        this.varNumber = varNumber;
+        this.varTime = varTime;
+        this.varDate = varDate;
+        this.seller = username;
+        this.id=id;
+    }
+
     public int getId() {
         return id;
     }
