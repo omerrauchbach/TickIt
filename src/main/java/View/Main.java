@@ -30,7 +30,7 @@ public class Main extends Application {
             FXMLLoader fxmlLoader=new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("/Main.fxml").openStream());
             primaryStage.setTitle("Tick-it");
-            Scene scene=new Scene(root);
+            Scene scene=new Scene(root, 500, 500);
             scene.getStylesheets().add(getClass().getResource("/login_stylesheet.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
