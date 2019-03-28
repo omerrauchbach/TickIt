@@ -1,65 +1,34 @@
 package Model;
 
+import javafx.beans.property.StringProperty;
+
 import java.sql.*;
 import java.util.Vector;
 
 public class Message {
 
-    private int id;
-    private int kind;//0-cash,1-change
+
     private String sender;
     private String reciever;
-    private int seen;
-    // 0 not seen, replacement.
-    // 1 seen and replace accepted by reciever.
-    // 2 seen and replace canceled by reciever.
-    // 3 not seen, pay cash.
-    // 4 seen and accepted by reciever
-    // 5 seen and canceled by reciever
-    // 6 reciever wait for get his money from buyer
-    // 7 don't do nothing
-    private String isOpended;
-    private int vacationIDSource;
-    private int vacationIDDest;
+    private String text;
+    private StringProperty senderProperty ;
+    private StringProperty recieverProperty ;
+    private StringProperty textProperty;
 
 
 
-    public Message(String sender, String reciever,int seen,int vacationIdSource,int vacationIdDest, int kind) {
+    public Message(String sender, String reciever,String text) {
         this.sender = sender;
         this.reciever = reciever;
-        this.vacationIDSource=vacationIdSource;
-        this.vacationIDDest=vacationIdDest;
-        this.kind=kind;
-        id=getFromDataBaseAndUpdate();
-        this.seen=seen;
-        if(seen==7)
-            isOpended="ReadUser";
-        else{
-            isOpended="Unread";
-        }
-    }
-    public Message(int id,String sender, String reciever,int seen,int vacationIdSource,int vacationIdDest, int kind) {
-        this.sender = sender;
-        this.reciever = reciever;
-        this.vacationIDSource=vacationIdSource;
-        this.vacationIDDest=vacationIdDest;
-        this.kind=kind;
-        this.id=id;
-        this.seen=seen;
-        if(seen==7)
-            isOpended="ReadUser";
-        else{
-            isOpended="unread";
-        }
+        this.text = text;
+        this.senderProperty.setValue(sender);
+        this.recieverProperty.setValue(reciever);
+        this.textProperty.setValue(text);
     }
 
-    public int getKind() {
-        return kind;
-    }
 
-    public int getId() {
-        return id;
-    }
+
+
 
     public String getSender() {
         return sender;
@@ -69,20 +38,18 @@ public class Message {
         return reciever;
     }
 
-    public int getSeen() {
-        return seen;
+    public String getText(){return text;}
+
+    public StringProperty getRecieverProperty() {
+        return recieverProperty;
     }
 
-    public String getIsOpended() {
-        return isOpended;
+    public StringProperty getsenderProperty(){
+        return senderProperty;
     }
 
-    public int getVacationIDSource() {
-        return vacationIDSource;
-    }
-
-    public int getVacationIDDest() {
-        return vacationIDDest;
+    public StringProperty getTextProperty(){
+        return textProperty;
     }
 
     public int getFromDataBaseAndUpdate() {
@@ -120,6 +87,7 @@ public class Message {
         //return
         return num;
     }
+
     public Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Users.db";

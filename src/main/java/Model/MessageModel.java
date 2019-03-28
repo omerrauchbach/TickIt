@@ -21,17 +21,13 @@ public class MessageModel implements IModel{
 
 
     public boolean CreateMessage(Message message) {
-        String sql = "INSERT INTO Messages(id, sender, reciever ,seen, vacation_ID_source, vacation_ID_dest, kind) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Messages(sender, reciever , text) VALUES(?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, String.valueOf(message.getId()));
-            pstmt.setString(2, message.getSender());
-            pstmt.setString(3, message.getReciever());
-            pstmt.setString(4, String.valueOf(message.getSeen()));
-            pstmt.setString(5, String.valueOf(message.getVacationIDSource()));
-            pstmt.setString(6, String.valueOf(message.getVacationIDDest()));
-            pstmt.setString(7, String.valueOf(message.getKind()));
+            pstmt.setString(1, message.getSender());
+            pstmt.setString(2, message.getReciever());
+            pstmt.setString(3, String.valueOf(message.getText()));
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -47,21 +43,17 @@ public class MessageModel implements IModel{
      */
     public List<Message> searchByReciever(String reciever) {
 
-        String sql = "SELECT id, sender, reciever,seen ,vacation_ID_source,vacation_ID_dest,kind FROM Messages Where reciever = ? ";//all messages
+        String sql = "SELECT sender,reciever,text  FROM Messages Where reciever = ? ";//all messages
                 List<Message> msgs = new ArrayList<Message>();
                 try (Connection conn = this.connect();
                      PreparedStatement pstmt = conn.prepareStatement(sql)) {
                     pstmt.setString(1, reciever);
                     ResultSet rs = pstmt.executeQuery();
                     while (rs.next()){
-                        int id=Integer.parseInt(rs.getString(1));
-                        String sender= rs.getString(2);
-//                String reciever_=rs.getString(3);
-                        String seen=rs.getString(4);//0
-                        String VacationSource=rs.getString(5);
-                        String VacationDest=rs.getString(6);
-                        String kind=rs.getString(7);
-               Message message=new Message(id,sender,reciever,Integer.valueOf(seen),Integer.valueOf(VacationSource),Integer.valueOf(VacationDest),Integer.valueOf(kind));
+                        String sender= rs.getString(1);
+                        String reciever_= rs.getString(2);
+                        String text =rs.getString(3);
+               Message message=new Message(sender , reciever_ , text);
                msgs.add(message);
             }
             return msgs;
@@ -93,6 +85,7 @@ public class MessageModel implements IModel{
     }
 
     public void changeVacations(Message message) {
+        /*
         String sql ="UPDATE Vacations SET user_name=? WHERE id = ?";
 
         try (Connection conn = this.connect();
@@ -110,9 +103,11 @@ public class MessageModel implements IModel{
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        */
     }
 
     public void changeOwnerOfVacation(Message message) {
+        /*
         String sql ="UPDATE Vacations SET user_name=? WHERE id = ?";
 
         try (Connection conn = this.connect();
@@ -124,5 +119,6 @@ public class MessageModel implements IModel{
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        */
     }
 }
