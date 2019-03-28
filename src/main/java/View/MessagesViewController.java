@@ -45,6 +45,7 @@ public class MessagesViewController extends AView {
         }
         return observableList;
     }
+
     public void setMsg(){
         TableColumn<Message,String> senderCol=new TableColumn<>("Sender");
         senderCol.setMinWidth(200);
