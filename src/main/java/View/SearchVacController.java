@@ -158,7 +158,6 @@ public class SearchVacController extends AView {
                 };
         VacationController controller = (VacationController) this.controller;
         actionCol.setCellFactory(cellFactory);
-        List<Vacation> vacList = controller.Search("", "");
 
 
         ObservableList<Vacation> vacObsList = FXCollections.observableArrayList();
