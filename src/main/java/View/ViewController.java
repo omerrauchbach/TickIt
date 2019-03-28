@@ -39,7 +39,7 @@ public class ViewController extends AView {
         try{
             Stage stage = new Stage();
             FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root = fxmlLoader.load(getClass().getResource("/Read.fxml").openStream());
+            Parent root = fxmlLoader.load(getClass().getResource("/ReadUser-OLD.fxml").openStream());
             stage.setTitle("Vacation4U - ReadUser");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root, 500, 500));
@@ -65,7 +65,7 @@ public class ViewController extends AView {
         mainview.setController(controller);
         try{
             FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Update.fxml").openStream());
+            Parent root1 = fxmlLoader.load(getClass().getResource("/UpdateUser-OLD.fxml").openStream());
             UpdateController controller1=fxmlLoader.<UpdateController>getController();
             controller1.setUser(user);
             Stage stage = new Stage();
@@ -97,7 +97,7 @@ public class ViewController extends AView {
         mainview.setController(controller);
         try {
             FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Delete.fxml").openStream());
+            Parent root1 = fxmlLoader.load(getClass().getResource("/DeleteUser-OLD.fxml").openStream());
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("DeleteUser Form");
