@@ -4,125 +4,65 @@ import java.sql.*;
 
 public class Vacation {
 
-    private String flightCompany;
-    private String departureDate;
-    private String backDate;
-    private String baggageIncluded; //boolean
-    private String Country;
-    private String flightBackIncluded; //boolean
-    private int numOfTicketsAdult;
-    private int numOfTicketsKid;
-    private int numOfTicketsBaby;
-    private String vacationKind;
-    private String hotelIncluded; //boolean
-    private int rankOfHotel;
-    private String kindOfHotel;
+
+    private String varSubject;
+    private String varSubTopic;
+    private String varPrice;
+    private String varLocation;
+    private String varNumber;
+    private String varTime;
+    private String varDate;
+    private String username;
     private int id;
-    private String seller;
-
-    static int numOfVactions=0;//id
-
-    //string ="" --> empty
-    //int =-1 -->empty
 
 
-    public Vacation(String flightCompany, String departureDate, String backDate, String baggageIncluded, String country, String flightBackIncluded, int numOfTicketsAdult,int numOfTicketsChild,
-                    int numOfTicketsBaby, String vacationKind, String hotelIncluded, int rankOfHotel,String kindOfHotel,String seller) {
-        this.flightCompany = flightCompany;
-        this.departureDate = departureDate;
-        this.backDate = backDate;
-        this.baggageIncluded = baggageIncluded;
-        Country = country;
-        this.flightBackIncluded = flightBackIncluded;
-        this.numOfTicketsAdult = numOfTicketsAdult;
-        this.numOfTicketsKid=numOfTicketsChild;
-        this.numOfTicketsBaby=numOfTicketsBaby;
-        this.vacationKind = vacationKind;
-        this.hotelIncluded = hotelIncluded;
-        this.rankOfHotel = rankOfHotel;
-        this.kindOfHotel=kindOfHotel;
-        this.seller = seller;
+    public Vacation(String varSubject, String varSubTopic, String varPrice, String varLocation,
+                    String varNumber, String varTime, String varDate, String username) {
+        this.varSubject = varSubject;
+        this.varSubTopic = varSubTopic;
+        this.varPrice = varPrice;
+        this.varLocation = varLocation;
+        this.varNumber = varNumber;
+        this.varTime = varTime;
+        this.varDate = varDate;
+        this.username = username;
         id=getFromDataBaseAndUpdate();
-
-    }
-
-    public Vacation(int id,String flightCompany, String departureDate, String backDate, String baggageIncluded,
-                    String country, String flightBackIncluded, int numOfTicketsAdult,int numOfTicketsChild,
-                    int numOfTicketsBaby, String vacationKind, String hotelIncluded, int rankOfHotel,String kindOfHotel,String seller) {
-        this.flightCompany = flightCompany;
-        this.departureDate = departureDate;
-        this.backDate = backDate;
-        this.baggageIncluded = baggageIncluded;
-        Country = country;
-        this.flightBackIncluded = flightBackIncluded;
-        this.numOfTicketsAdult = numOfTicketsAdult;
-        this.numOfTicketsKid=numOfTicketsChild;
-        this.numOfTicketsBaby=numOfTicketsBaby;
-        this.vacationKind = vacationKind;
-        this.hotelIncluded = hotelIncluded;
-        this.rankOfHotel = rankOfHotel;
-        this.kindOfHotel=kindOfHotel;
-        this.seller = seller;
-        this.id=id;
-        }
-    public String getFlightCompany() {
-        return flightCompany;
-    }
-
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
-    public String getBackDate() {
-        return backDate;
-    }
-
-    public String getBaggageIncluded() {
-        return baggageIncluded;
-    }
-
-    public String getCountry() {
-        return Country;
-    }
-
-    public String getFlightBackIncluded() {
-        return flightBackIncluded;
-    }
-
-    public int getNumOfTicketsAdult() {
-        return numOfTicketsAdult;
-    }
-
-    public int getNumOfTicketsKid() {
-        return numOfTicketsKid;
-    }
-
-    public int getNumOfTicketsBaby() {
-        return numOfTicketsBaby;
-    }
-
-    public String getVacationKind() {
-        return vacationKind;
-    }
-
-    public String getHotelIncluded() {
-        return hotelIncluded;
-    }
-
-    public int getRankOfHotel() {
-        return rankOfHotel;
-    }
-
-    public String getKindOfHotel() {
-        return kindOfHotel;
-    }
-
-    public String getSeller() {
-        return seller;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getVarSubject() {
+        return varSubject;
+    }
+
+    public String getVarSubTopic() {
+        return varSubTopic;
+    }
+
+    public String getVarPrice() {
+        return varPrice;
+    }
+
+    public String getVarLocation() {
+        return varLocation;
+    }
+
+    public String getVarNumber() {
+        return varNumber;
+    }
+
+    public String getVarTime() {
+        return varTime;
+    }
+
+    public String getVarDate() {
+        return varDate;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public int getFromDataBaseAndUpdate() {
@@ -157,6 +97,7 @@ public class Vacation {
         //return
         return num;
     }
+
     public Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Users.db";

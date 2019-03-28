@@ -59,7 +59,7 @@ public class ChangeOrPayViewController extends AView {
 
     @FXML
     private void PayCash(ActionEvent event) throws IOException {
-        Message message = new Message(user.getUserName(),vacation.getSeller(),3,vacation.getId(),0,0);
+        Message message = new Message(user.getUserName(),vacation.getUsername(),3,vacation.getId(),0,0);
         changeOrPayController.PayWithCash(message);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("A message send to the seller");
@@ -84,7 +84,7 @@ public class ChangeOrPayViewController extends AView {
             String[] splitedLine=chosenLine.split(",");
             String[] idString = splitedLine[0].split("=");
             int id = Integer.parseInt(idString[1]);
-            Message message = new Message(user.getUserName(), vacation.getSeller(), 0, vacation.getId(), id, 1);//todo check if getId is correct
+            Message message = new Message(user.getUserName(), vacation.getUsername(), 0, vacation.getId(), id, 1);//todo check if getId is correct
             changeOrPayController.ChangeVacation(message);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("A message send to the seller");

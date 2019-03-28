@@ -145,21 +145,14 @@ public class Main extends Application {
         // SQL statement for creating a new table
 
         String sql = "CREATE TABLE IF NOT EXISTS Vacations (\n"
-                + "   id text PRIMARY KEY,\n"
-                + "   flight_company text ,\n"
-                + "   departure_date text ,\n"
-                + "   back_date text ,\n"
-                + "   baggage_included text,\n"
-                + "   country text,\n"
-                + "   flight_back_included text,\n"
-                + "   num_tickets_adult text,\n"
-                + "   num_tickets_kid text,\n"
-                + "   num_tickets_baby text,\n"
-                + "   vacation_kind text,\n"
-                + "   hotel_included text,\n"
-                + "   rank_hotel text,\n"
-                + "   hotel_kind text,\n"
-                + "   user_name text NOT NULL\n"
+                + "   user_name text PRIMARY KEY,\n"
+                + "   subject text ,\n"
+                + "   subTopic text ,\n"
+                + "   numberOfTicket text ,\n"
+                + "   price text,\n"
+                + "   location text,\n"
+                + "   vdate text,\n"
+                + "   vtime text,\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
