@@ -7,11 +7,11 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="628.0" prefWidth="1035.0" style="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateVacController">
     <children>
@@ -19,179 +19,132 @@
             <children>
                 <AnchorPane prefHeight="22.0" prefWidth="1035.0" />
                 <BorderPane id="borderPane" prefHeight="536.0" prefWidth="799.0">
-                    <center>
-                        <AnchorPane id="AnchorPane" prefHeight="585.0" prefWidth="1035.0">
+               <left>
+                        <AnchorPane id="AnchorPane" prefHeight="536.0" prefWidth="1035.0" BorderPane.alignment="CENTER">
                      <children>
-                                 <Button id="searchBtn" alignment="CENTER" contentDisplay="RIGHT" layoutX="363.0" layoutY="449.0" mnemonicParsing="false" onAction="#createVac" prefHeight="56.0" prefWidth="311.0" text="Publish vactation">
+                                 <Button id="searchBtn" alignment="CENTER" contentDisplay="RIGHT" layoutX="405.0" layoutY="313.0" mnemonicParsing="false" onAction="#publishTicket" prefHeight="45.0" prefWidth="133.0" text="Publish">
                                      <font>
                                          <Font size="26.0" />
                                      </font>
                                  </Button>
-                                 <Label layoutX="136.0" layoutY="236.0" text="Dates">
+                                 <Label layoutX="112.0" layoutY="179.0" text="Date">
                                      <font>
                                          <Font size="16.0" />
                                      </font>
                                  </Label>
-                                 <DatePicker fx:id="DepartureDate" layoutX="256.0" layoutY="236.0" prefHeight="25.0" prefWidth="188.0" promptText="Departure date" />
-                                 <ComboBox fx:id="includeReturn" layoutX="467.0" layoutY="236.0" onAction="#withReturn" prefHeight="25.0" prefWidth="103.0" promptText="not must">
+                                 <DatePicker fx:id="date" layoutX="255.0" layoutY="179.0" prefHeight="25.0" prefWidth="188.0" />
+                                 <ComboBox fx:id="time" layoutX="533.0" layoutY="179.0"  prefHeight="25.0" prefWidth="103.0">
                                      <items>
                                          <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="not must" />
-                                             <String fx:value="yes" />
-                                             <String fx:value="no" />
+                                             <String fx:value="07:00" />
+                                             <String fx:value="07:30" />
+                                             <String fx:value="08:00" />
+                                             <String fx:value="08:30" />
+                                             <String fx:value="09:00" />
+                                             <String fx:value="09:30" />
+                                             <String fx:value="10:00" />
+                                             <String fx:value="10:30" />
+                                             <String fx:value="11:00" />
+                                             <String fx:value="11:30" />
+                                             <String fx:value="12:00" />
+                                             <String fx:value="12:30" />
+                                             <String fx:value="13:00" />
+                                             <String fx:value="13:30" />
+                                             <String fx:value="14:00" />
+                                             <String fx:value="14:30" />
+                                             <String fx:value="15:00" />
+                                             <String fx:value="15:30" />
+                                             <String fx:value="16:00" />
+                                             <String fx:value="16:30" />
+                                             <String fx:value="17:00" />
+                                             <String fx:value="17:30" />
+                                             <String fx:value="18:00" />
+                                             <String fx:value="18:30" />
+                                             <String fx:value="19:00" />
+                                             <String fx:value="19:30" />
+                                             <String fx:value="20:00" />
+                                             <String fx:value="20:30" />
+                                             <String fx:value="21:00" />
+                                             <String fx:value="21:30" />
+                                             <String fx:value="22:00" />
+                                             <String fx:value="22:30" />
+                                             <String fx:value="23:00" />
+                                             <String fx:value="23:30" />
+                                             <String fx:value="00:00" />
                                          </FXCollections>
                                      </items>
                                  </ComboBox>
-                                 <DatePicker fx:id="ReturnDate" disable="true" layoutX="570.0" layoutY="236.0" prefHeight="25.0" prefWidth="166.0" promptText="Return date" />
-                                 <TitledPane fx:id="accord" animated="false" collapsible="false" layoutX="256.0" layoutY="115.0" prefHeight="113.0" prefWidth="482.0" text="Tickets number">
-                                     <content>
-                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="200.0">
-                                             <children>
-                                                 <TextField fx:id="AdultNum" editable="false" layoutX="116.0" layoutY="-1.0" prefHeight="27.0" prefWidth="39.0" promptText="0" />
-                                                 <TextField fx:id="ChildNum" editable="false" layoutX="116.0" layoutY="28.0" prefHeight="27.0" prefWidth="39.0" promptText="0" />
-                                                 <TextField fx:id="BabyNum" editable="false" layoutX="116.0" layoutY="57.0" prefHeight="27.0" prefWidth="39.0" promptText="0" />
-                                                 <Label layoutX="16.0" text="Adult:">
-                                                     <font>
-                                                         <Font size="16.0" />
-                                                     </font>
-                                                 </Label>
-                                                 <Label layoutX="15.0" layoutY="27.0" text="Child:">
-                                                     <font>
-                                                         <Font size="16.0" />
-                                                     </font>
-                                                 </Label>
-                                                 <Label layoutX="17.0" layoutY="54.0" text="Baby:">
-                                                     <font>
-                                                         <Font size="16.0" />
-                                                     </font>
-                                                 </Label>
-                                                 <Button fx:id="minAdultNum" layoutX="87.0" layoutY="-1.0" mnemonicParsing="false" onAction="#minusAdult" prefHeight="27.0" prefWidth="29.0" text="-" />
-                                                 <Button fx:id="pluAdultNum" layoutX="155.0" layoutY="-1.0" mnemonicParsing="false" onAction="#addAdult" prefHeight="25.0" prefWidth="30.0" text="+" />
-                                                 <Button fx:id="pluChildNum" layoutX="155.0" layoutY="28.0" mnemonicParsing="false" onAction="#addChild" prefHeight="25.0" prefWidth="30.0" text="+" />
-                                                 <Button fx:id="pluBabyNum" layoutX="155.0" layoutY="57.0" mnemonicParsing="false" onAction="#addBaby" prefHeight="25.0" prefWidth="30.0" text="+" />
-                                                 <Button fx:id="minChildNum" layoutX="87.0" layoutY="28.0" mnemonicParsing="false" onAction="#minusChild" prefHeight="27.0" prefWidth="29.0" text="-" />
-                                                 <Button fx:id="minBabyNum" layoutX="87.0" layoutY="57.0" mnemonicParsing="false" onAction="#minusBaby" prefHeight="27.0" prefWidth="29.0" text="-" />
-                                             </children>
-                                         </AnchorPane>
-                                     </content>
-                                     <font>
-                                         <Font size="13.0" />
-                                     </font>
-                                 </TitledPane>
-                                 <Label layoutX="131.0" layoutY="113.0" text="Tickets">
+                                 <Label layoutX="112.0" layoutY="113.0" text="Sub topic">
                                      <font>
                                          <Font size="16.0" />
                                      </font>
                                  </Label>
-                                 <Label layoutX="132.0" layoutY="82.0" text="Destination">
+                                 <Label layoutX="112.0" layoutY="82.0" text="Subject">
                                      <font>
                                          <Font size="16.0" />
                                      </font>
                                  </Label>
-                                 <ComboBox fx:id="destination" layoutX="255.0" layoutY="82.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="482.0" promptText="Anywhere">
+                                 <ComboBox fx:id="subject" layoutX="255.0" layoutY="82.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="482.0">
                                      <items>
                                          <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="Anywhere" />
-                                             <String fx:value="France" />
-                                             <String fx:value="New York" />
-                                             <String fx:value="Japan" />
-                                             <String fx:value="Miami" />
-                                             <String fx:value="Brazil" />
-                                             <String fx:value="Russia" />
-                                             <String fx:value="Greece" />
-                                             <String fx:value="China" />
+                                             <String fx:value="Show" />
+                                             <String fx:value="Baraka" />
+                                             <String fx:value="Party" />
+                                             <String fx:value="Sport" />
+                                             <String fx:value="BGU Assosiation Event" />
+                                             <String fx:value="Theater" />
+                                             <String fx:value="Festival" />
+                                             <String fx:value="Other" />
                                          </FXCollections>
                                      </items>
                                  </ComboBox>
-                                 <Label layoutX="131.0" layoutY="280.0" text="Flight company">
+                                 <Label layoutX="113.0" layoutY="211.0" text="Price">
                                      <font>
                                          <Font size="16.0" />
                                      </font>
                                  </Label>
-                                 <ComboBox fx:id="flightComp" layoutX="255.0" layoutY="280.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="480.0" promptText="All the companies">
-                                     <items>
-                                         <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="All the companies" />
-                                             <String fx:value="El-Al" />
-                                             <String fx:value="Israir" />
-                                             <String fx:value="Arkia" />
-                                             <String fx:value="Turkish Airlines" />
-                                             <String fx:value="else" />
-                                         </FXCollections>
-                                     </items>
-                                 </ComboBox>
-                                 <Label layoutX="131.0" layoutY="324.0" text="Vacation type">
-                                     <font>
-                                         <Font size="16.0" />
-                                     </font>
-                                 </Label>
-                                 <ComboBox fx:id="vacationType" layoutX="254.0" layoutY="324.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="482.0" promptText="Exotic or Urbanic">
-                                     <items>
-                                         <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="Exotic or Urbanic" />
-                                             <String fx:value="Urbanic" />
-                                             <String fx:value="Exotic" />
-                                         </FXCollections>
-                                     </items>
-                                 </ComboBox>
-                                 <ComboBox fx:id="includeHotel" layoutX="253.0" layoutY="362.0" onAction="#withHotel" prefHeight="25.0" prefWidth="122.0" promptText="not must">
-                                     <items>
-                                         <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="not must" />
-                                             <String fx:value="yes" />
-                                             <String fx:value="no" />
-                                         </FXCollections>
-                                     </items>
-                                 </ComboBox>
-                                 <Label layoutX="131.0" layoutY="363.0" prefHeight="25.0" prefWidth="114.0" text="Include hotel">
-                                     <font>
-                                         <Font size="16.0" />
-                                     </font>
-                                 </Label>
-                                 <ComboBox fx:id="hotelType" disable="true" layoutX="381.0" layoutY="361.0" prefHeight="25.0" prefWidth="176.0" promptText="Any type">
-                                     <items>
-                                         <FXCollections fx:factory="observableArrayList">
-                                             <String fx:value="Any type" />
-                                             <String fx:value="Tzimer" />
-                                             <String fx:value="Hotel" />
-                                             <String fx:value="Room" />
-                                         </FXCollections>
-                                     </items>
-                                 </ComboBox>
-                                 <ComboBox fx:id="hotelStars" disable="true" layoutX="562.0" layoutY="361.0" prefHeight="25.0" prefWidth="175.0" promptText="Any rank">
-                                     <items>
-                                     <FXCollections fx:factory="observableArrayList">
-                                     <String fx:value="Any rank" />
-                                     <String fx:value="★" />
-                                     <String fx:value="★★" />
-                                     <String fx:value="★★★" />
-                                     <String fx:value="★★★★" />
-                                     <String fx:value="★★★★★" />
-                                     </FXCollections>
-                           </items>
-                                 </ComboBox>
-                                 <ComboBox fx:id="includeBag" layoutX="254.0" layoutY="399.0" prefHeight="25.0" prefWidth="484.0" promptText="not must">
-                           <items>
-                                     <FXCollections fx:factory="observableArrayList">
-                                         <String fx:value="not must" />
-                                         <String fx:value="yes" />
-                                         <String fx:value="no" />
-                                     </FXCollections>
-                                 </items>
-                        </ComboBox>
-                                 <Label layoutX="129.0" layoutY="399.0" prefHeight="25.0" prefWidth="114.0" text="Include bagage">
-                                     <font>
-                                         <Font size="16.0" />
-                                     </font>
-                                 </Label>
-                        <Label layoutX="256.0" layoutY="2.0" prefHeight="71.0" prefWidth="554.0" text="Create your Advertise:" underline="true">
+                        <Label layoutX="256.0" layoutY="2.0" prefHeight="71.0" prefWidth="554.0" text="Publish your ticket" underline="true">
                            <font>
                               <Font size="42.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="subTopic" layoutX="255.0" layoutY="113.0" prefHeight="25.0" prefWidth="482.0" />
+                        <Text layoutX="112.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of tickets">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                         <ComboBox fx:id="numberOfTicket" layoutX="256.0" layoutY="145.0" prefHeight="25.0" prefWidth="65.0">
+                             <items>
+                                 <FXCollections fx:factory="observableArrayList">
+                                     <String fx:value="1" />
+                                     <String fx:value="2" />
+                                     <String fx:value="3" />
+                                     <String fx:value="4" />
+                                     <String fx:value="5" />
+                                     <String fx:value="6" />
+                                     <String fx:value="7" />
+                                     <String fx:value="8" />
+                                     <String fx:value="9" />
+                                     <String fx:value="10" />
+                                 </FXCollections>
+                             </items>
+                         </ComboBox>
+                        <Text layoutX="485.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="price" layoutX="256.0" layoutY="211.0" />
+                        <Text layoutX="113.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="location" layoutX="256.0" layoutY="246.0" />
                      </children>
                         </AnchorPane>
-                    </center>
+               </left>
                 </BorderPane>
             </children>
         </VBox>

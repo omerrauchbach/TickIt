@@ -20,25 +20,33 @@ public class VacationModel implements IModel{
     }
 
     //create
-    public boolean CreateVacation(Vacation vacation) {
-        String sql = "INSERT INTO Vacations(id, flight_company, departure_date, back_date, baggage_included, country,flight_back_included,num_tickets_adult,num_tickets_kid,num_tickets_baby,vacation_kind,hotel_included,rank_hotel,hotel_kind,user_name) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    public boolean CreateTicket(Vacation vacation) {
+
+        String sql = "INSERT INTO Vacations(user_name,subject,subTopic,numberOfTicket,price,location,vdate,vtime) VALUES(?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, String.valueOf(vacation.getId()));
+  
+            pstmt.setString(1, String.valueOf(vacation.getSeller()));
 
 
-            pstmt.setString(2, vacation.getFlightCompany());
+                pstmt.setString(2, vacation.getVarSubject());
 
 
-            pstmt.setString(3, vacation.getDepartureDate());
+                pstmt.setString(3, vacation.getVarSubTopic());
 
 
-            pstmt.setString(6, vacation.getCountry());
+                pstmt.setString(4, vacation.getVarNumber());
 
-            pstmt.setString(11, vacation.getVacationKind());
+                pstmt.setString(5,vacation.getVarPrice());
 
-            pstmt.setString(15, vacation.getSeller());
+
+                 pstmt.setString(6,vacation.getVarLocation());
+
+
+                pstmt.setString(7,vacation.getVarDate());
+
+                pstmt.setString(8,String.valueOf(vacation.getVarTime()));
 
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -227,6 +235,7 @@ public class VacationModel implements IModel{
                     id_=Integer.parseInt(rs.getString(1));
                     flightCompany_=rs.getString(2);
                     departureDate_= rs.getString(3);
+
                     Country_=rs.getString(4);
                     vacationKind_=rs.getString(5);
                     userName_=rs.getString(6);
