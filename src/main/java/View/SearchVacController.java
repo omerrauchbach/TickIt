@@ -375,136 +375,16 @@ public class SearchVacController extends AView {
         int numOfTicketsAdult = -1, numOfTicketsChild = -1, numOfTicketsBaby = -1, rankOfHotel = -1;
         /**get the information from the view objects:**/
         {
-            if (destination.getValue() != null && !destination.getValue().equals("Anywhere")) {
+            if (destination.getValue() != null && !destination.getValue().equals("-None")) {
                 Country = destination.getValue();
             }
             if (DepartureDate.getValue() != null) {
                 departureDate = DepartureDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             }
-            if(isExtend) {
-                try {
-                    if (AdultNum.getText() != null && Integer.valueOf(AdultNum.getText()) != 0)
-                        numOfTicketsAdult = Integer.valueOf(AdultNum.getText());
-                } catch (Exception e) {
-
-                }
-                try {
-                    if (ChildNum.getText() != null && Integer.valueOf(ChildNum.getText()) != 0)
-                        numOfTicketsChild = Integer.valueOf(ChildNum.getText());
-                } catch (Exception e) {
-
-                }
-                try {
-                    if (BabyNum.getText() != null && Integer.valueOf(BabyNum.getText()) != 0)
-                        numOfTicketsBaby = Integer.valueOf(BabyNum.getText());
-                } catch (Exception e) {
-
-                }
-
-
-                if (includeReturn.getValue() != null && !includeReturn.getValue().equals("not must")) {
-                    flightBackIncluded = includeReturn.getValue();
-                    if (ReturnDate.getValue() != null) { //todo - add check to returndate bigger then departure date
-                        backDate = ReturnDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-                    }
-                }
-
-                if (vacationType.getValue() != null && !vacationType.getValue().equals("Exotic or Urbanic")) {
-                    vacationKind = vacationType.getValue();
-                } // else ""
-
-                if (vacationType.getValue() != null && !vacationType.getValue().equals("Exotic or Urbanic")) { //todo!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    vacationKind = vacationType.getValue();
-                } // else ""
-
-                if (flightComp.getValue() != null && !flightComp.getValue().equals("All the companies")) {
-                    flightCompany = flightComp.getValue();
-                }
-                if (includeHotel.getValue() != null && !includeHotel.getValue().equals("not must")) {
-                    hotelIncluded = includeHotel.getValue();
-                    if (hotelStars.getValue() != null && !hotelStars.getValue().equals("Any rank")) {
-                        switch ((String) hotelStars.getValue()) {
-                            case "★":
-                                rankOfHotel = 1;
-                                break;
-                            case "★★":
-                                rankOfHotel = 2;
-                                break;
-                            case "★★★":
-                                rankOfHotel = 3;
-                                break;
-                            case "★★★★":
-                                rankOfHotel = 4;
-                                break;
-                            case "★★★★★":
-                                rankOfHotel = 5;
-                                break;
-                            default:
-                                rankOfHotel = -1;
-                        }
-                    }
-                    if (hotelType.getValue() != null && !hotelType.getValue().equals("Any type")) {
-                        hotelKind=hotelType.getValue();
-                    }
-                }//hotels
-
-                if (includeBag.getValue() != null && !includeBag.getValue().equals("not must")) {
-                    baggageIncluded = (String) includeBag.getValue();
-                }
-            }
         }//get the information from the view object
         VacationController controller = (VacationController) this.controller;
         List<Vacation> vacList = controller.Search(flightCompany, departureDate, backDate, baggageIncluded,
                 Country, flightBackIncluded, numOfTicketsAdult, numOfTicketsChild, numOfTicketsBaby, vacationKind, hotelIncluded, rankOfHotel,hotelKind);
-
-
-        ObservableList<Vacation> vacObsList = FXCollections.observableArrayList();
-        vacObsList.addAll(vacList);
-        {
-
-
-            destionationCol.setCellValueFactory(new PropertyValueFactory<>("Country"));
-            vacTable.setItems(vacObsList);
-
-            adultCol.setCellValueFactory(new PropertyValueFactory<>("numOfTicketsAdult"));
-            vacTable.setItems(vacObsList);
-
-            childCol.setCellValueFactory(new PropertyValueFactory<>("numOfTicketsKid"));
-            vacTable.setItems(vacObsList);
-
-            babyCol.setCellValueFactory(new PropertyValueFactory<>("numOfTicketsBaby"));
-            vacTable.setItems(vacObsList);
-
-            depDateCol.setCellValueFactory(new PropertyValueFactory<>("departureDate"));
-            vacTable.setItems(vacObsList);
-
-            withReturnCol.setCellValueFactory(new PropertyValueFactory<>("flightBackIncluded"));
-            vacTable.setItems(vacObsList);
-
-            returnDateCol.setCellValueFactory(new PropertyValueFactory<>("backDate"));
-            vacTable.setItems(vacObsList);
-
-            vacationTypeCol.setCellValueFactory(new PropertyValueFactory<>("vacationKind"));
-            vacTable.setItems(vacObsList);
-
-            flightCompCol.setCellValueFactory(new PropertyValueFactory<>("flightCompany"));
-            vacTable.setItems(vacObsList);
-
-            includeBagCol.setCellValueFactory(new PropertyValueFactory<>("baggageIncluded"));
-            vacTable.setItems(vacObsList);
-
-            includeHotCol.setCellValueFactory(new PropertyValueFactory<>("hotelIncluded"));
-            vacTable.setItems(vacObsList);
-
-
-            hotelRankCol.setCellValueFactory(new PropertyValueFactory<>("rankOfHotel"));
-            vacTable.setItems(vacObsList);
-
-            hotelTypeCol.setCellValueFactory(new PropertyValueFactory<>("kindOfHotel"));
-            vacTable.setItems(vacObsList);
-
-        }
-
 
     }
 
