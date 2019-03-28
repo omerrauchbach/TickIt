@@ -4,57 +4,77 @@ import java.sql.*;
 
 public class Vacation {
 
-    private String flightCompany;
-    private String departureDate;
-    private String Country;
-    private String vacationKind;
-    private int id;
+    private String varSubject;
+    private String varSubTopic;
+    private String varPrice;
+    private String varLocation;
+    private String varNumber;
+    private String varTime;
+    private String varDate;
     private String seller;
+    private int id;
 
-    //string ="" --> empty
-    //int =-1 -->empty
-    public Vacation(String flightCompany, String departureDate, String country,
-                    String vacationKind, String seller) {
-        this.flightCompany = flightCompany;
-        this.departureDate = departureDate;
-        Country = country;
-        this.vacationKind = vacationKind;
-        this.seller = seller;
+
+    public Vacation(String varSubject, String varSubTopic, String varPrice, String varLocation,
+                    String varNumber, String varTime, String varDate, String username) {
+        this.varSubject = varSubject;
+        this.varSubTopic = varSubTopic;
+        this.varPrice = varPrice;
+        this.varLocation = varLocation;
+        this.varNumber = varNumber;
+        this.varTime = varTime;
+        this.varDate = varDate;
+        this.seller = username;
         id=getFromDataBaseAndUpdate();
-
     }
 
-    public Vacation(int id,String flightCompany, String departureDate,
-                    String country, String vacationKind, String seller) {
-        this.flightCompany = flightCompany;
-        this.departureDate = departureDate;
-        Country = country;
-        this.vacationKind = vacationKind;
-        this.seller = seller;
+    public Vacation(int id,String varSubject, String varSubTopic, String varPrice, String varLocation,
+                    String varNumber, String varTime, String varDate, String username) {
+        this.varSubject = varSubject;
+        this.varSubTopic = varSubTopic;
+        this.varPrice = varPrice;
+        this.varLocation = varLocation;
+        this.varNumber = varNumber;
+        this.varTime = varTime;
+        this.varDate = varDate;
+        this.seller = username;
         this.id=id;
-        }
-    public String getFlightCompany() {
-        return flightCompany;
-    }
-
-    public String getDepartureDate() {
-        return departureDate;
-    }
-
-    public String getCountry() {
-        return Country;
-    }
-
-    public String getVacationKind() {
-        return vacationKind;
-    }
-
-    public String getSeller() {
-        return seller;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getVarSubject() {
+        return varSubject;
+    }
+
+    public String getVarSubTopic() {
+        return varSubTopic;
+    }
+
+    public String getVarPrice() {
+        return varPrice;
+    }
+
+    public String getVarLocation() {
+        return varLocation;
+    }
+
+    public String getVarNumber() {
+        return varNumber;
+    }
+
+    public String getVarTime() {
+        return varTime;
+    }
+
+    public String getVarDate() {
+        return varDate;
+    }
+
+    public String getSeller() {
+        return seller;
     }
 
     public int getFromDataBaseAndUpdate() {
@@ -89,6 +109,7 @@ public class Vacation {
         //return
         return num;
     }
+
     public Connection connect() {
         // SQLite connection string
         String url = "jdbc:sqlite:Users.db";

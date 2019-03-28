@@ -25,11 +25,19 @@ public class VacationController extends AController {
         this.vacationModel = vacationModel;
         this.searchView = searchView;
     }
-    public void Create(String flightCompany,String departureDate,
-                       String Country, String vacationKind) {
+
+    public void Connect(){
+
+    }
+
+
+    public void Create(String varSubject,String varSubTopic,String varPrice,String varLocation,
+                       String varNumber,String varTime,String varDate){
+
        //connected so can publish vacation
-            Vacation vacation=new Vacation(flightCompany,departureDate,Country, vacationKind, user.getUserName());
-            boolean flag=vacationModel.CreateVacation(vacation);
+            Vacation vacation=new Vacation(varSubject,varSubTopic,varPrice,varLocation,varNumber,varTime,
+                    varDate,user.getUserName());
+            boolean flag= vacationModel.CreateTicket(vacation);
             if(flag){
                 Alert success = new Alert(Alert.AlertType.CONFIRMATION);
                 success.setHeaderText("Action Succeeded");
@@ -39,11 +47,8 @@ public class VacationController extends AController {
 
     }
 
-    public List<Vacation> Search(String flightCompany, String departureDate, String backDate, String baggageIncluded,
-                       String Country, String flightBackIncluded, int numOfTicketsAdult, int numOfTicketsChild, int numOfTicketsBaby, String vacationKind, String hotelIncluded, int rankOfHotel,
-                                 String hotelKind){
-        List<Vacation> vacations=vacationModel.findVacations(flightCompany,departureDate,backDate,baggageIncluded,
-                 Country,flightBackIncluded,numOfTicketsAdult,numOfTicketsChild, numOfTicketsBaby,vacationKind,hotelIncluded, rankOfHotel,hotelKind);
+    public List<Vacation> Search(String subject, String date){
+        List<Vacation> vacations= vacationModel.findVacations(subject,date);
         if(vacations.size()==0){//no vacation founded
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Error");

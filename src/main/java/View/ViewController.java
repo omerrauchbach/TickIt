@@ -124,9 +124,9 @@ public class ViewController extends AView {
             stage.setTitle("Search For Ticket");
             stage.setScene(new Scene(root1));
             stage.show();
-
-        } catch (IOException e) {
-
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
 
     }
@@ -146,10 +146,9 @@ public class ViewController extends AView {
             stage.setTitle("Messages:");
             stage.setScene(new Scene(root1));
             stage.show();
-        } catch (IOException e) {
-
         }
-
+        catch (IOException e){
+        }
     }
 
     public void openRequests(ActionEvent actionEvent) {

@@ -4,6 +4,7 @@ import Model.Message;
 import Model.MessageModel;
 import View.AView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MessagesController extends AController {
@@ -18,11 +19,17 @@ public class MessagesController extends AController {
         this.view = view;
     }
 
-    public boolean CreateMessage(String sender, String reciever, int seen, int vacationIdSource, int vacationIdDest, int kind) {
-            Message message=new Message(sender,reciever,seen,vacationIdSource,vacationIdDest,kind);
+    public boolean CreateMessage(String sender, String reciever, String text) {
+            Message message=new Message(sender,reciever,text);
             return messageModel.CreateMessage(message);
     }
 
+    public List<Message> getMessages(String reciever){
+
+        List<Message> list = messageModel.searchByReciever(reciever);
+
+        return list;
+    }
     public void updateSeenToMessage(int id, int seen){
         messageModel.UpdateSeen(id,seen);
     }

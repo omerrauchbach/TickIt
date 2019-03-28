@@ -117,20 +117,14 @@ public class Main extends Application {
 
         String sql = "CREATE TABLE IF NOT EXISTS Vacations (\n"
                 + "   id text PRIMARY KEY,\n"
-                + "   flight_company text ,\n"
-                + "   departure_date text ,\n"
-                + "   back_date text ,\n"
-                + "   baggage_included text,\n"
-                + "   country text,\n"
-                + "   flight_back_included text,\n"
-                + "   num_tickets_adult text,\n"
-                + "   num_tickets_kid text,\n"
-                + "   num_tickets_baby text,\n"
-                + "   vacation_kind text,\n"
-                + "   hotel_included text,\n"
-                + "   rank_hotel text,\n"
-                + "   hotel_kind text,\n"
-                + "   user_name text NOT NULL\n"
+                + "   subject text,\n"
+                + "   sub_topic text,\n"
+                + "   number_of_ticket text,\n"
+                + "   price text,\n"
+                + "   location text,\n"
+                + "   vdate text,\n"
+                + "   vtime text,\n"
+                + "   user_name text NOT NULL \n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -176,10 +170,7 @@ public class Main extends Application {
         String sql = "CREATE TABLE IF NOT EXISTS Messages (\n"
                 + "   sender text NOT NULL,\n"
                 + "   reciever text NOT NULL,\n"
-                + "   seen integer NOT NULL,\n"
-                + "   kind integer NOT NULL,\n"
-                + "   vacation_ID_source integer NOT NULL,\n"
-                + "   vacation_ID_dest integer NOT NULL\n"
+                + "   text text NOT NULL\n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
