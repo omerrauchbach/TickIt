@@ -233,7 +233,7 @@ public class SearchVacController extends AView {
         VacationController controller = (VacationController) this.controller;
         List<Vacation> vacList = controller.Search(ticket, departureDate);
         ObservableList<Vacation> vacObsList = FXCollections.observableArrayList(vacList);
-        vacObsList.addAll(vacList);
+        //vacObsList.addAll(vacList);
         priceCol.setCellValueFactory(cellData -> cellData.getValue().getVarPriceProperty());
         userNameCol.setCellValueFactory(cellData -> cellData.getValue().getSellerProperty());
         subjectCol.setCellValueFactory(cellData -> cellData.getValue().getVarSubjectProperty());
