@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ChangeOrPayViewController">
+   <children>
+      <ImageView fitHeight="512.0" fitWidth="698.0" layoutX="-65.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@reka2.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="payButton" layoutX="122.0" layoutY="109.0" mnemonicParsing="false" onAction="#PayCash" prefHeight="56.0" prefWidth="101.0" text="Pay cash">
+         <font>
+            <Font size="19.0" />
+         </font></Button>
+      <Button fx:id="changeButton" layoutX="193.0" layoutY="276.0" mnemonicParsing="false" onAction="#ChangeVacation" prefHeight="56.0" prefWidth="101.0" text="Replace">
+         <font>
+            <Font size="21.0" />
+         </font></Button>
+      <ComboBox fx:id="listVacations" layoutX="14.0" layoutY="291.0" prefWidth="150.0" />
+      <Label layoutX="25.0" layoutY="246.0" text="but before choose a vacation to replace with:">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="68.0" text="Press here if you want to pay cash:">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="211.0" text="Press here if you want to replace vacations">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
