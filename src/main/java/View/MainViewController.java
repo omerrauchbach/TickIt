@@ -155,7 +155,7 @@ public class MainViewController extends AView {
         Stage stage = new Stage();
         Scene scene = new Scene(root);
 
-        stage.setTitle("Search Vacation");
+        stage.setTitle("Search for ticket");
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.setScene(scene);
         stage.show();

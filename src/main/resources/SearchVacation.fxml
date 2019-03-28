@@ -34,13 +34,14 @@
                                <items>
                                    <FXCollections fx:factory="observableArrayList">
                                        <String fx:value="-None" />
-                                       <String fx:value="shows" />
-                                       <String fx:value="parties" />
-                                       <String fx:value="sports" />
-                                       <String fx:value="Bgu association events" />
-                                       <String fx:value="theaters" />
-                                       <String fx:value="festivals" />
-                                       <String fx:value="other.." />
+                                       <String fx:value="Show" />
+                                       <String fx:value="Baraka" />
+                                       <String fx:value="Party" />
+                                       <String fx:value="Sport" />
+                                       <String fx:value="Bgu association event" />
+                                       <String fx:value="Theater" />
+                                       <String fx:value="Festival" />
+                                       <String fx:value="Other.." />
                                    </FXCollections>
                                </items>
                            </ComboBox>

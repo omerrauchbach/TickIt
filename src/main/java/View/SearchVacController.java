@@ -39,32 +39,12 @@ public class SearchVacController extends AView {
     //Vacation information:
     @FXML
     private ComboBox<String> destination;
-    @FXML
-    private TableColumn destionationCol;
-
-    @FXML
-    private TextField AdultNum;
-    int i_AdultNum = 0;
-    private final int maxAd = 10;
-    private final int minAd = 0;
-    @FXML
-    private TableColumn adultCol;
 
     @FXML
     private TextField ChildNum;
     int i_ChildNum = 0;
     private final int maxCh = 10;
     private final int minCh = 0;
-    @FXML
-    private TableColumn childCol;
-
-    @FXML
-    private TextField BabyNum;
-    int i_BabyNum = 0;
-    private final int maxBa = 10;
-    private final int minBa = 0;
-    @FXML
-    private TableColumn babyCol;
 
     @FXML
     private DatePicker DepartureDate;
@@ -74,42 +54,7 @@ public class SearchVacController extends AView {
     @FXML
     private ComboBox<String> includeReturn;
     @FXML
-    private TableColumn withReturnCol;
-
-    @FXML
     private DatePicker ReturnDate;
-    @FXML
-    private TableColumn returnDateCol;
-
-    @FXML
-    private ComboBox<String> vacationType;
-    @FXML
-    private TableColumn vacationTypeCol;
-
-    @FXML
-    private ComboBox<String> flightComp;
-    @FXML
-    private TableColumn flightCompCol;
-
-    @FXML
-    private ComboBox<String> includeBag;
-    @FXML
-    private TableColumn includeBagCol;
-
-    @FXML
-    private ComboBox<String> includeHotel;
-    @FXML
-    private TableColumn includeHotCol;
-
-    @FXML
-    private ComboBox<String> hotelType;
-    @FXML
-    private TableColumn hotelTypeCol;
-
-    @FXML
-    private ComboBox<String> hotelStars;
-    @FXML
-    private TableColumn hotelRankCol;
     @FXML
     private Button searchNotEx;
 
@@ -137,9 +82,6 @@ public class SearchVacController extends AView {
         clipRect.setWidth(extendableSearchPane.getWidth());
         toggleExtendableSearch();
         searchNotEx.setVisible(true);
-        i_AdultNum = 0;
-        i_ChildNum = 0;
-        i_BabyNum = 0;
         TableColumn actionCol = new TableColumn("Action");
         actionCol.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
 
@@ -170,8 +112,6 @@ public class SearchVacController extends AView {
                                             Parent root1 = null;
                                             try {
                                                 root1 = fxmlLoader.load(getClass().getResource("/ChangeOrPayVacation.fxml").openStream());
-//                                                ViewController controller1=fxmlLoader.<ViewController>getController();
-//                                                controller1.setUserName(userName);
                                                 ChangeOrPayViewController controller1=fxmlLoader.<ChangeOrPayViewController>getController();
                                                 controller1.setUser(user);
                                                 controller1.setVacation(vacation);
@@ -200,29 +140,6 @@ public class SearchVacController extends AView {
                                             errorAlert.show();
 
                                         }
-
-
-                                        /*
-
-                                        Vacation vacation = getTableView().getItems().get(getIndex());
-                                        if(!userName.equals("")){
-                                            MessageModel model = new MessageModel();
-                                            model.CreateMessage(new Message(userName,vacation.getSeller(),0,vacation.getId()));
-                                            Alert success = new Alert(Alert.AlertType.INFORMATION);
-                                            success.setHeaderText("The request has submitted.");
-                                            success.setContentText("If the seller will agree,\n" +
-                                                    "a payment request will wait for you in the mail box. ");
-                                            success.show();
-                                        }
-                                        else{
-                                            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-                                            errorAlert.setHeaderText("You are not connected to our system.");
-                                            errorAlert.setContentText("Please close all the windows,\n" +
-                                                    "and sign in first. ");
-                                            errorAlert.show();
-
-                                        }
-                                        */
                                     });
                                     setGraphic(btn);
                                     setText(null);
@@ -304,35 +221,6 @@ public class SearchVacController extends AView {
         }
     }
 
-    public void withHotel(ActionEvent ae) {
-
-        if (includeHotel.getValue().equals("yes")) {
-            hotelStars.setDisable(false);
-            hotelType.setDisable(false);
-        } else {
-            hotelStars.setDisable(true);
-            hotelType.setDisable(true);
-        }
-    }
-
-
-    public void addAdult(ActionEvent ae) {
-        if (i_AdultNum < maxAd) {
-            i_AdultNum++;
-            AdultNum.setText("" + i_AdultNum);
-            AdultNum.setEditable(false);
-
-        }
-    }
-
-    public void minusAdult(ActionEvent ae) {
-        if (minAd < i_AdultNum) {
-            i_AdultNum--;
-            AdultNum.setText("" + i_AdultNum);
-            AdultNum.setEditable(false);
-        }
-    }
-
     public void addChild(ActionEvent ae) {
         if (i_ChildNum < maxCh) {
             i_ChildNum++;
@@ -351,32 +239,16 @@ public class SearchVacController extends AView {
         }
     }
 
-    public void addBaby(ActionEvent ae) {
-        if (i_BabyNum < maxBa) {
-            i_BabyNum++;
-            BabyNum.setText("" + i_BabyNum);
-            BabyNum.setEditable(false);
-        }
-    }
-
-    public void minusBaby(ActionEvent ae) {
-        if (minBa < i_BabyNum) {
-            i_BabyNum--;
-            BabyNum.setText("" + i_BabyNum);
-            BabyNum.setEditable(false);
-        }
-    }
-
 
     @FXML
     private void search(ActionEvent ae) {
         String flightCompany = "", departureDate = "", backDate = "", baggageIncluded = "",
-                Country = "", flightBackIncluded = "", vacationKind = "", hotelIncluded = "", hotelKind="";
+                ticket = "", flightBackIncluded = "", vacationKind = "", hotelIncluded = "", hotelKind="";
         int numOfTicketsAdult = -1, numOfTicketsChild = -1, numOfTicketsBaby = -1, rankOfHotel = -1;
         /**get the information from the view objects:**/
         {
             if (destination.getValue() != null && !destination.getValue().equals("-None")) {
-                Country = destination.getValue();
+                ticket = destination.getValue();
             }
             if (DepartureDate.getValue() != null) {
                 departureDate = DepartureDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
@@ -384,7 +256,7 @@ public class SearchVacController extends AView {
         }//get the information from the view object
         VacationController controller = (VacationController) this.controller;
         List<Vacation> vacList = controller.Search(flightCompany, departureDate, backDate, baggageIncluded,
-                Country, flightBackIncluded, numOfTicketsAdult, numOfTicketsChild, numOfTicketsBaby, vacationKind, hotelIncluded, rankOfHotel,hotelKind);
+                ticket, flightBackIncluded, numOfTicketsAdult, numOfTicketsChild, numOfTicketsBaby, vacationKind, hotelIncluded, rankOfHotel,hotelKind);
 
     }
 
