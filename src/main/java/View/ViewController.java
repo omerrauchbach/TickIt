@@ -154,9 +154,7 @@ public class ViewController extends AView {
         }
 
         catch (IOException e){
-
         }
-
     }
 
     public void openRequests(ActionEvent actionEvent) {

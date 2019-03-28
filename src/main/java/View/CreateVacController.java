@@ -23,19 +23,16 @@ public class CreateVacController extends AView {
     @FXML
     private TextField price;
     @FXML
-    private TextField location;
+    private TextField location1;
     @FXML
     private DatePicker date;
-    @FXML
-    private TableView vacTable;
-
 
     @FXML
     private void publishTicket(ActionEvent ae) {
         String varSubject=subject.getValue();
         String varSubTopic=subTopic.getText();
         String varPrice=price.getText();
-        String varLocation=location.getText();
+        String varLocation=location1.getText();
         String varNumber=numberOfTicket.getValue();
         String varTime=time.getValue();
         String varDate=date.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));

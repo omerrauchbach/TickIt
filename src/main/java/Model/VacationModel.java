@@ -22,12 +22,12 @@ public class VacationModel implements IModel{
     //create
     public boolean CreateTicket(Vacation vacation) {
 
-        String sql = "INSERT INTO Vacations(user_name,subject,subTopic,numberOfTicket,price,location,vdate,vtime) VALUES(?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Vacations(id,subject,sub_topic,number_of_ticket,price,location,vdate,vtime,user_name) VALUES(?,?,?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
   
-            pstmt.setString(1, String.valueOf(vacation.getSeller()));
+            pstmt.setString(1, String.valueOf(vacation.getId()));
 
 
                 pstmt.setString(2, vacation.getVarSubject());
@@ -47,6 +47,8 @@ public class VacationModel implements IModel{
                 pstmt.setString(7,vacation.getVarDate());
 
                 pstmt.setString(8,String.valueOf(vacation.getVarTime()));
+
+            pstmt.setString(9, String.valueOf(vacation.getSeller()));
 
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -239,8 +241,8 @@ public class VacationModel implements IModel{
                     Country_=rs.getString(4);
                     vacationKind_=rs.getString(5);
                     userName_=rs.getString(6);
-                    Vacation vacation = new Vacation(id_,flightCompany_ ,departureDate_, Country_, vacationKind_, userName_);
-                    vacations.add(vacation);
+//                    Vacation vacation = new Vacation(flightCompany_ ,departureDate_, Country_, vacationKind_, userName_);
+//                    vacations.add(vacation);
                 }
                 return vacations;
 

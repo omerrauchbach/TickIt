@@ -38,16 +38,10 @@ public class SearchVacController extends AView {
 
     //Vacation information:
     @FXML
-    private ComboBox<String> destination;
+    private ComboBox<String> subject;
 
     @FXML
-    private TextField ChildNum;
-    int i_ChildNum = 0;
-    private final int maxCh = 10;
-    private final int minCh = 0;
-
-    @FXML
-    private DatePicker DepartureDate;
+    private DatePicker varDate;
     @FXML
     private TableColumn depDateCol;
 
@@ -221,25 +215,6 @@ public class SearchVacController extends AView {
         }
     }
 
-    public void addChild(ActionEvent ae) {
-        if (i_ChildNum < maxCh) {
-            i_ChildNum++;
-            ChildNum.setText("" + i_ChildNum);
-            ChildNum.setEditable(false);
-
-        }
-    }
-
-    public void minusChild(ActionEvent ae) {
-        if (minCh < i_ChildNum) {
-            i_ChildNum--;
-            ChildNum.setText("" + i_ChildNum);
-            ChildNum.setEditable(false);
-
-        }
-    }
-
-
     @FXML
     private void search(ActionEvent ae) {
         String flightCompany = "", departureDate = "", backDate = "", baggageIncluded = "",
@@ -247,11 +222,11 @@ public class SearchVacController extends AView {
         int numOfTicketsAdult = -1, numOfTicketsChild = -1, numOfTicketsBaby = -1, rankOfHotel = -1;
         /**get the information from the view objects:**/
         {
-            if (destination.getValue() != null && !destination.getValue().equals("-None")) {
-                ticket = destination.getValue();
+            if (subject.getValue() != null && !subject.getValue().equals("-None")) {
+                ticket = subject.getValue();
             }
-            if (DepartureDate.getValue() != null) {
-                departureDate = DepartureDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            if (varDate.getValue() != null) {
+                departureDate = varDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             }
         }//get the information from the view object
         VacationController controller = (VacationController) this.controller;
