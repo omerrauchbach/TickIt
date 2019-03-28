@@ -25,18 +25,10 @@ public class VacationController extends AController {
         this.vacationModel = vacationModel;
         this.searchView = searchView;
     }
-
-    public void Connect(){
-
-    }
-
-
-    public void Create(String flightCompany,String departureDate,String backDate,String baggageIncluded,
-                       String Country,String flightBackIncluded,int numOfTicketsAdult,int numOfTicketsChild,
-                       int numOfTicketsBaby,String vacationKind,String hotelIncluded,int rankOfHotel,String hotelKind) {
+    public void Create(String flightCompany,String departureDate,
+                       String Country, String vacationKind) {
        //connected so can publish vacation
-            Vacation vacation=new Vacation(flightCompany,departureDate,backDate,baggageIncluded,Country,flightBackIncluded,numOfTicketsAdult,numOfTicketsChild
-                    ,numOfTicketsBaby,vacationKind,hotelIncluded,rankOfHotel,hotelKind,user.getUserName());
+            Vacation vacation=new Vacation(flightCompany,departureDate,Country, vacationKind, user.getUserName());
             boolean flag=vacationModel.CreateVacation(vacation);
             if(flag){
                 Alert success = new Alert(Alert.AlertType.CONFIRMATION);

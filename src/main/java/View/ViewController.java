@@ -125,7 +125,7 @@ public class ViewController extends AView {
             controller1.setUser(user);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Search For Vacation");
+            stage.setTitle("Search For Ticket");
             stage.setScene(new Scene(root1));
             stage.show();
 

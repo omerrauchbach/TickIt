@@ -28,42 +28,15 @@ public class VacationModel implements IModel{
             pstmt.setString(1, String.valueOf(vacation.getId()));
 
 
-                pstmt.setString(2, vacation.getFlightCompany());
+            pstmt.setString(2, vacation.getFlightCompany());
 
 
-                pstmt.setString(3, vacation.getDepartureDate());
+            pstmt.setString(3, vacation.getDepartureDate());
 
 
-                pstmt.setString(4, vacation.getBackDate());
+            pstmt.setString(6, vacation.getCountry());
 
-                pstmt.setString(5,vacation.getBaggageIncluded());
-
-
-                 pstmt.setString(6,vacation.getCountry());
-
-
-                pstmt.setString(7,vacation.getFlightBackIncluded());
-
-
-                pstmt.setString(8,String.valueOf(vacation.getNumOfTicketsAdult()));
-
-
-                pstmt.setString(9,String.valueOf(vacation.getNumOfTicketsKid()));
-
-
-                pstmt.setString(10,String.valueOf(vacation.getNumOfTicketsBaby()));
-
-
-                pstmt.setString(11,vacation.getVacationKind());
-
-
-                pstmt.setString(12, vacation.getHotelIncluded());
-
-
-                pstmt.setString(13, String.valueOf(vacation.getRankOfHotel()));
-
-            pstmt.setString(14, vacation.getKindOfHotel());
-
+            pstmt.setString(11, vacation.getVacationKind());
 
             pstmt.setString(15, vacation.getSeller());
 
@@ -246,37 +219,18 @@ public class VacationModel implements IModel{
             int id_;
             String flightCompany_;
             String departureDate_;
-            String backDate_;
-            String baggageIncluded_;
             String Country_;
-            String flightBackIncluded_;
-            int numOfTicketsAdult_;
-            int numOfTicketsChild_;
-            int numOfTicketsBaby_;
             String vacationKind_;
-            String hotelIncluded_;
-            int rankOfHotel_;
-            String kindOfHotel_;
             String userName_;
                 ResultSet rs = pstmt.executeQuery();
                 while (rs.next()) {
                     id_=Integer.parseInt(rs.getString(1));
                     flightCompany_=rs.getString(2);
                     departureDate_= rs.getString(3);
-                    backDate_=rs.getString(4);
-                    baggageIncluded_=rs.getString(5);
-                    Country_=rs.getString(6);
-                    flightBackIncluded_ =rs.getString(7);
-                    numOfTicketsAdult_=Integer.parseInt(rs.getString(8));
-                    numOfTicketsChild_=Integer.parseInt(rs.getString(9));
-                    numOfTicketsBaby_=Integer.parseInt(rs.getString(10));
-                    vacationKind_=rs.getString(11);
-                    hotelIncluded_=rs.getString(12);
-                    rankOfHotel_=Integer.parseInt(rs.getString(13));
-                    kindOfHotel_=rs.getString(14);
-                    userName_=rs.getString(15);
-                    Vacation vacation = new Vacation(id_,flightCompany_ ,departureDate_, backDate_, baggageIncluded_, Country_, flightBackIncluded_,numOfTicketsAdult_,
-                            numOfTicketsChild_, numOfTicketsBaby_,vacationKind_ ,hotelIncluded_, rankOfHotel_,kindOfHotel_, userName_);
+                    Country_=rs.getString(4);
+                    vacationKind_=rs.getString(5);
+                    userName_=rs.getString(6);
+                    Vacation vacation = new Vacation(id_,flightCompany_ ,departureDate_, Country_, vacationKind_, userName_);
                     vacations.add(vacation);
                 }
                 return vacations;
