@@ -122,7 +122,9 @@ public class ViewController extends AView {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Search For Ticket");
-            stage.setScene(new Scene(root1));
+            Scene scene=new Scene(root1,800,600);
+            scene.getStylesheets().add(getClass().getResource("/all_stylesheet.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         }
         catch (Exception e){
@@ -182,8 +184,10 @@ public class ViewController extends AView {
             Parent root1 = fxmlLoader.load(getClass().getResource("/CreateVac.fxml").openStream());
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("CreateMessage New Vacation");
-            stage.setScene(new Scene(root1));
+            stage.setTitle("Publish your ticket");
+            Scene scene=new Scene(root1,800,600);
+            scene.getStylesheets().add(getClass().getResource("/all_stylesheet.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
         } catch (IOException e) {
         }
