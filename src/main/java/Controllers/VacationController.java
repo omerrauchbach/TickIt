@@ -47,11 +47,8 @@ public class VacationController extends AController {
 
     }
 
-    public List<Vacation> Search(String flightCompany, String departureDate, String backDate, String baggageIncluded,
-                       String Country, String flightBackIncluded, int numOfTicketsAdult, int numOfTicketsChild, int numOfTicketsBaby, String vacationKind, String hotelIncluded, int rankOfHotel,
-                                 String hotelKind){
-        List<Vacation> vacations= vacationModel.findVacations(flightCompany,departureDate,backDate,baggageIncluded,
-                 Country,flightBackIncluded,numOfTicketsAdult,numOfTicketsChild, numOfTicketsBaby,vacationKind,hotelIncluded, rankOfHotel,hotelKind);
+    public List<Vacation> Search(String subject, String date){
+        List<Vacation> vacations= vacationModel.findVacations(subject,date);
         if(vacations.size()==0){//no vacation founded
             Alert errorAlert = new Alert(Alert.AlertType.ERROR);
             errorAlert.setHeaderText("Error");

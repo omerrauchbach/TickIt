@@ -91,57 +91,11 @@
                                             <Font size="21.0" />
                                         </font>
                                     </Button>
-                                    <ComboBox fx:id="flightComp" layoutX="461.0" layoutY="70.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="151.0" promptText="All the companies">
-                                        <items>
-                                            <FXCollections fx:factory="observableArrayList">
-                                                <String fx:value="All the companies" />
-                                                <String fx:value="El-Al" />
-                                                <String fx:value="Israir" />
-                                                <String fx:value="Arkia" />
-                                                <String fx:value="Turkish Airlines" />
-                                                <String fx:value="else" />
-                                            </FXCollections>
-                                        </items>
-                                    </ComboBox>
-                                    <ComboBox fx:id="vacationType" layoutX="460.0" layoutY="37.0" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="152.0" promptText="Exotic or Urbanic">
-                                        <items>
-                                            <FXCollections fx:factory="observableArrayList">
-                                                <String fx:value="Exotic or Urbanic" />
-                                                <String fx:value="Urbanic" />
-                                                <String fx:value="Exotic" />
-                                            </FXCollections>
-                                        </items>
-                                    </ComboBox>
                                     <Label layoutX="26.0" layoutY="5.0" text="Tickets">
                                         <font>
                                             <Font size="16.0" />
                                         </font>
                                     </Label>
-                                    <TitledPane fx:id="accord" animated="false" layoutX="82.0" layoutY="5.0" prefHeight="113.0" prefWidth="187.0" text="Tickets number">
-                                        <content>
-                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="83.0" prefWidth="200.0">
-                                                <children>
-                                                    <TextField fx:id="ChildNum" editable="false" layoutX="52.0" layoutY="22.0" prefHeight="46.0" prefWidth="56.0" promptText="0">
-                                          <font>
-                                             <Font size="24.0" />
-                                          </font></TextField>
-                                                </children>
-                                            </AnchorPane>
-                                        </content>
-                                        <font>
-                                            <Font size="13.0" />
-                                        </font>
-                                    </TitledPane>
-                                    <DatePicker fx:id="ReturnDate" disable="true" layoutX="452.0" layoutY="5.0" prefHeight="25.0" prefWidth="159.0" promptText="Return date" />
-                                    <ComboBox fx:id="includeReturn" layoutX="345.0" layoutY="5.0" onAction="#withReturn" prefHeight="25.0" prefWidth="103.0" promptText="not must">
-                                        <items>
-                                            <FXCollections fx:factory="observableArrayList">
-                                                <String fx:value="not must" />
-                                                <String fx:value="yes" />
-                                                <String fx:value="no" />
-                                            </FXCollections>
-                                        </items>
-                                    </ComboBox>
                                 </Pane>
                             </children>
                         </AnchorPane>
