@@ -44,23 +44,23 @@ public class SearchVacController extends AView {
     @FXML
     private ComboBox<String> subject;
     @FXML
-    private TableColumn idCol;
+    private TableColumn<Vacation ,String> idCol;
     @FXML
-    private TableColumn subjectCol;
+    private TableColumn<Vacation ,String> subjectCol;
     @FXML
-    private TableColumn subTopicCol;
+    private TableColumn<Vacation ,String> subTopicCol;
     @FXML
-    private TableColumn numberCol;
+    private TableColumn<Vacation ,String> numberCol;
     @FXML
-    private TableColumn priceCol;
+    private TableColumn<Vacation ,String> priceCol;
     @FXML
-    private TableColumn locationCol;
+    private TableColumn<Vacation ,String> locationCol;
     @FXML
-    private TableColumn dateCol;
+    private TableColumn<Vacation ,String> dateCol;
     @FXML
-    private TableColumn timeCol;
+    private TableColumn<Vacation ,String> timeCol;
     @FXML
-    private TableColumn userNameCol;
+    private TableColumn<Vacation ,String> userNameCol;
 
     @FXML
     private Button searchNotEx;
@@ -232,36 +232,17 @@ public class SearchVacController extends AView {
         }//get the information from the view object
         VacationController controller = (VacationController) this.controller;
         List<Vacation> vacList = controller.Search(ticket, departureDate);
-
-
-        ObservableList<Vacation> vacObsList = FXCollections.observableArrayList();
-
+        ObservableList<Vacation> vacObsList = FXCollections.observableArrayList(vacList);
         vacObsList.addAll(vacList);
-
-
-        priceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
-        vacTable.setItems(vacObsList);
-
-        userNameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-        vacTable.setItems(vacObsList);
-
-        subjectCol.setCellValueFactory(new PropertyValueFactory<>("Subject"));
-        vacTable.setItems(vacObsList);
-
-        subTopicCol.setCellValueFactory(new PropertyValueFactory<>("SubTopic"));
-        vacTable.setItems(vacObsList);
-
-        numberCol.setCellValueFactory(new PropertyValueFactory<>("numberOfTickets"));
-        vacTable.setItems(vacObsList);
-
-        locationCol.setCellValueFactory(new PropertyValueFactory<>("Location"));
-        vacTable.setItems(vacObsList);
-
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
-        vacTable.setItems(vacObsList);
-
-        timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
-        vacTable.setItems(vacObsList);
+        priceCol.setCellValueFactory(cellData -> cellData.getValue().getVarPriceProperty());
+        userNameCol.setCellValueFactory(cellData -> cellData.getValue().getSellerProperty());
+        subjectCol.setCellValueFactory(cellData -> cellData.getValue().getVarSubjectProperty());
+        subTopicCol.setCellValueFactory(cellData -> cellData.getValue().getVarSubTopicProperty());
+        numberCol.setCellValueFactory(cellData -> cellData.getValue().getVarNumberProperty());
+        locationCol.setCellValueFactory(cellData -> cellData.getValue().getVarLocationProperty());
+        dateCol.setCellValueFactory(cellData -> cellData.getValue().getVarDateProperty());
+            timeCol.setCellValueFactory(cellData -> cellData.getValue().getVarTimeProperty());
+            vacTable.setItems(vacObsList);
     }
 
     private EventHandler<ActionEvent> createBouncingEffect(double height) {

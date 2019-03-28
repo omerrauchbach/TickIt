@@ -1,5 +1,8 @@
 package Model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.sql.*;
 
 public class Vacation {
@@ -76,6 +79,41 @@ public class Vacation {
     public String getSeller() {
         return seller;
     }
+
+    ////////////////////////////
+    public StringProperty getVarSubjectProperty() {
+         return  new SimpleStringProperty(varSubject);
+    }
+
+    public StringProperty getVarSubTopicProperty() {
+        return new SimpleStringProperty(varSubTopic);
+    }
+
+    public StringProperty getVarPriceProperty() {
+        return new SimpleStringProperty(varPrice);
+    }
+
+    public StringProperty getVarLocationProperty() {
+        return new SimpleStringProperty(varLocation);
+    }
+
+    public StringProperty getVarNumberProperty() {
+        return new SimpleStringProperty(varNumber);
+    }
+
+    public StringProperty getVarTimeProperty() {
+        return new SimpleStringProperty(varTime);
+    }
+
+    public StringProperty getVarDateProperty() {
+        return new SimpleStringProperty(varDate);
+    }
+
+    public StringProperty getSellerProperty() {
+        return new SimpleStringProperty(seller);
+    }
+
+    ////////////////
 
     public int getFromDataBaseAndUpdate() {
         int num=-1;

@@ -26,10 +26,6 @@ public class VacationController extends AController {
         this.searchView = searchView;
     }
 
-    public void Connect(){
-
-    }
-
 
     public void Create(String varSubject,String varSubTopic,String varPrice,String varLocation,
                        String varNumber,String varTime,String varDate){
