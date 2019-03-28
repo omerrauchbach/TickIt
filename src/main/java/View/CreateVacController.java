@@ -4,6 +4,7 @@ import Controllers.VacationController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.time.format.DateTimeFormatter;
 
@@ -41,9 +42,9 @@ public class CreateVacController extends AView {
         controller.Create(varSubject,varSubTopic,varPrice,varLocation,varNumber,varTime,varDate);
 
 
-            this.ShowAlert();
+        this.ShowAlert();
 
-
+        ((Stage)date.getScene().getWindow()).close();
     }
 }
 

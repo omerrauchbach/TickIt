@@ -156,7 +156,6 @@ public class SearchVacController extends AView {
                         return cell;
                     }
                 };
-        VacationController controller = (VacationController) this.controller;
         actionCol.setCellFactory(cellFactory);
 
 
@@ -222,7 +221,7 @@ public class SearchVacController extends AView {
         String flightCompany = "", departureDate = "", backDate = "", baggageIncluded = "",
                 ticket = "", flightBackIncluded = "", vacationKind = "", hotelIncluded = "", hotelKind = "";
         int numOfTicketsAdult = -1, numOfTicketsChild = -1, numOfTicketsBaby = -1, rankOfHotel = -1;
-        /**get the information from the view objects:**/
+        /*get the information from the view objects:*/
         {
             if (subject.getValue() != null && !subject.getValue().equals("-None")) {
                 ticket = subject.getValue();
@@ -236,34 +235,33 @@ public class SearchVacController extends AView {
 
 
         ObservableList<Vacation> vacObsList = FXCollections.observableArrayList();
+
         vacObsList.addAll(vacList);
-        {
 
 
-            priceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
-            vacTable.setItems(vacObsList);
+        priceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
+        vacTable.setItems(vacObsList);
 
-            userNameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-            vacTable.setItems(vacObsList);
+        userNameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+        vacTable.setItems(vacObsList);
 
-            subjectCol.setCellValueFactory(new PropertyValueFactory<>("Subject"));
-            vacTable.setItems(vacObsList);
+        subjectCol.setCellValueFactory(new PropertyValueFactory<>("Subject"));
+        vacTable.setItems(vacObsList);
 
-            subTopicCol.setCellValueFactory(new PropertyValueFactory<>("SubTopic"));
-            vacTable.setItems(vacObsList);
+        subTopicCol.setCellValueFactory(new PropertyValueFactory<>("SubTopic"));
+        vacTable.setItems(vacObsList);
 
-            numberCol.setCellValueFactory(new PropertyValueFactory<>("numberOfTickets"));
-            vacTable.setItems(vacObsList);
+        numberCol.setCellValueFactory(new PropertyValueFactory<>("numberOfTickets"));
+        vacTable.setItems(vacObsList);
 
-            locationCol.setCellValueFactory(new PropertyValueFactory<>("Location"));
-            vacTable.setItems(vacObsList);
+        locationCol.setCellValueFactory(new PropertyValueFactory<>("Location"));
+        vacTable.setItems(vacObsList);
 
-            dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
-            vacTable.setItems(vacObsList);
+        dateCol.setCellValueFactory(new PropertyValueFactory<>("Date"));
+        vacTable.setItems(vacObsList);
 
-            timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
-            vacTable.setItems(vacObsList);
-        }
+        timeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
+        vacTable.setItems(vacObsList);
     }
 
     private EventHandler<ActionEvent> createBouncingEffect(double height) {
