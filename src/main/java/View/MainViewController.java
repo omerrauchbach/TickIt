@@ -91,7 +91,6 @@ public class MainViewController extends AView {
            if(email.equals("post.bgu.ac.il")&& name.length()>3)
                 return true;
         }
-
         return true;
     }
 }

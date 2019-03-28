@@ -62,9 +62,6 @@ public class CreateVacController extends AView {
 
     @FXML
     void initialize() {
-        double widthInitial = 200;
-        double heightInitial = 200;
-
         i_AdultNum = 0;
         i_ChildNum = 0;
         i_BabyNum = 0;
@@ -228,10 +225,10 @@ public class CreateVacController extends AView {
         }//get the information from the view object
 
         VacationController controller = (VacationController) this.controller;
-        controller.Create(flightCompany,departureDate,backDate,baggageIncluded,Country,flightBackIncluded,numOfTicketsAdult,numOfTicketsChild,numOfTicketsBaby,
-                vacationKind,hotelIncluded,rankOfHotel,hotelKind);
+        controller.Create(flightCompany,departureDate,Country,flightBackIncluded);
 
-        this.ShowAlert();
+
+            this.ShowAlert();
 
 
     }
