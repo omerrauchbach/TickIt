@@ -59,15 +59,18 @@ public class ChangeOrPayViewController extends AView {
 
     @FXML
     private void PayCash(ActionEvent event) throws IOException {
+        /*
         Message message = new Message(user.getUserName(),vacation.getSeller(),3,vacation.getId(),0,0);
         changeOrPayController.PayWithCash(message);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("A message send to the seller");
         alert.showAndWait();
+        */
     }
 
     @FXML
     private void ChangeVacation(ActionEvent event) throws IOException {
+        /*
         if(listVacations.getItems().size()==0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("You don't have any vacation to replace.");
@@ -90,5 +93,6 @@ public class ChangeOrPayViewController extends AView {
             alert.setContentText("A message send to the seller");
             alert.showAndWait();
         }
+        */
     }
 }

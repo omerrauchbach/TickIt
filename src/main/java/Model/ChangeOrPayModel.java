@@ -20,6 +20,7 @@ public class ChangeOrPayModel implements IModel
     }
 
     public void payWithCash(Message message){
+        /*
         String sql = "INSERT INTO Messages(id, sender, reciever ,seen, vacation_ID_source,vacation_ID_dest, kind) VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
@@ -35,6 +36,7 @@ public class ChangeOrPayModel implements IModel
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        */
     }
 
     /**
@@ -42,6 +44,7 @@ public class ChangeOrPayModel implements IModel
      * @param message -the message that will be create in the DB
      */
     public void changeVacation(Message message){
+        /*
         String sql = "INSERT INTO Messages(id, sender, reciever ,seen, vacation_ID_source, vacation_ID_dest, kind) VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
@@ -57,6 +60,7 @@ public class ChangeOrPayModel implements IModel
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        */
     }
 
     /**

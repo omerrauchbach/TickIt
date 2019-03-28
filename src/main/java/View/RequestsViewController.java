@@ -34,6 +34,7 @@ public class RequestsViewController extends AView {
         this.payed=payed;
     }
 
+    /*
 
     public ObservableList<Message> getMessages(String reciever) {//reciever=userName
         ObservableList<Message> observableList = FXCollections.observableArrayList();
@@ -148,4 +149,5 @@ public class RequestsViewController extends AView {
         //setMsg();
 
     }
+    */
 }
