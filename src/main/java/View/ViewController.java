@@ -123,7 +123,7 @@ public class ViewController extends AView {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Search For Ticket");
             Scene scene=new Scene(root1,800,600);
-            scene.getStylesheets().add(getClass().getResource("/all_stylesheet.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/home_stylesheet.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         }
@@ -186,7 +186,7 @@ public class ViewController extends AView {
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Publish your ticket");
             Scene scene=new Scene(root1,800,600);
-            scene.getStylesheets().add(getClass().getResource("/all_stylesheet.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/home_stylesheet.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="paneCreate" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1268.0" style="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchVacController">
+<AnchorPane id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1268.0" style="" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchVacController">
     <children>
         <VBox prefHeight="561.0" prefWidth="995.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0">
             <children>
@@ -58,14 +58,14 @@
                             <children>
                                 <TableView id="mytableView" fx:id="vacTable" layoutY="16.0" maxWidth="1.7976931348623157E308" minHeight="200.0" prefHeight="626.0" prefWidth="1268.0" AnchorPane.bottomAnchor="-151.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                                     <columns>
-                                        <TableColumn fx:id="userNameCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="שם משתמש" />
-                                        <TableColumn fx:id="subjectCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="נושא" />
-                                        <TableColumn fx:id="subTopicCol" maxWidth="5000.0" minWidth="10.0" prefWidth="103.0" text="תת נושא" />
-                                        <TableColumn fx:id="dateCol" maxWidth="5000.0" minWidth="9.0" prefWidth="84.0" text="תאריך" />
+                                        <TableColumn fx:id="userNameCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="username" />
+                                        <TableColumn fx:id="subjectCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="subject" />
+                                        <TableColumn fx:id="subTopicCol" maxWidth="5000.0" minWidth="10.0" prefWidth="103.0" text="subTopic" />
+                                        <TableColumn fx:id="dateCol" maxWidth="5000.0" minWidth="9.0" prefWidth="84.0" text="date" />
                                         <TableColumn fx:id="priceCol" maxWidth="5000.0" minWidth="0.0" prefWidth="78.0" text="price" />
-                                        <TableColumn fx:id="numberCol" maxWidth="5000.0" minWidth="9.0" prefWidth="133.0" text="מספר כרטיסים" />
-                                        <TableColumn fx:id="timeCol" maxWidth="5000.0" minWidth="9.0" prefWidth="79.0" text="שעה" />
-                                        <TableColumn fx:id="locationCol" maxWidth="5000.0" minWidth="0.0" prefWidth="158.0" text="מיקום" />
+                                        <TableColumn fx:id="numberCol" maxWidth="5000.0" minWidth="9.0" prefWidth="133.0" text="numberOfTickets" />
+                                        <TableColumn fx:id="timeCol" maxWidth="5000.0" minWidth="9.0" prefWidth="79.0" text="time" />
+                                        <TableColumn fx:id="locationCol" maxWidth="5000.0" minWidth="0.0" prefWidth="158.0" text="location" />
                                     </columns>
                                 </TableView>
                             </children>
