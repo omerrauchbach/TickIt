@@ -32,7 +32,6 @@ public class Main extends Application {
             primaryStage.setTitle("Tick-it");
             Scene scene=new Scene(root);
             primaryStage.setScene(scene);
-
             primaryStage.show();
         }
         catch(Exception e){
