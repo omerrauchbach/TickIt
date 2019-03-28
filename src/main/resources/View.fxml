@@ -5,20 +5,21 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane styleClass="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="484.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="484.0" styleClass="anchor" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ViewController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="550.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@background-view.jpg" />
          </image>
       </ImageView>
-      <Button id="rich-blue" fx:id="openNewVacationForm" layoutX="327.0" layoutY="287.0" mnemonicParsing="false" onAction="#openNewVacationForm" prefHeight="42.0" prefWidth="149.0" text="Post Your Ticket" />
-      <Button id="rich-blue" layoutX="176.0" layoutY="287.0" mnemonicParsing="false" onAction="#openSearchVacationForm" prefHeight="42.0" prefWidth="132.0" text="Tick-It Board" />
-      <ImageView fitHeight="95.0" fitWidth="250.0" layoutX="117.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+      <Button id="rich-blue" fx:id="openNewVacationForm" layoutX="171.0" layoutY="240.0" mnemonicParsing="false" onAction="#openNewVacationForm" prefHeight="42.0" prefWidth="149.0" text="Post Your Ticket" />
+      <Button id="rich-blue" layoutX="171.0" layoutY="300.0" mnemonicParsing="false" onAction="#openSearchVacationForm" prefHeight="42.0" prefWidth="149.0" text="Tick-It Board" />
+      <ImageView fitHeight="101.0" fitWidth="251.0" layoutX="117.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
-      <Button id="rich-blue" fx:id="msg" layoutX="26.0" layoutY="287.0" mnemonicParsing="false" onAction="#openMessages" prefHeight="42.0" prefWidth="122.0" text="Messages" />
+      <Button id="rich-blue" fx:id="msg" layoutX="23.0" layoutY="300.0" mnemonicParsing="false" onAction="#openMessages" prefHeight="42.0" prefWidth="122.0" text="Messages" />
+      <Button id="rich-blue" fx:id="request1" layoutX="341.0" layoutY="300.0" mnemonicParsing="false" onAction="#openRequests" prefHeight="42.0" prefWidth="112.0" text="Requests" />
    </children>
 </AnchorPane>

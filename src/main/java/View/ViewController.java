@@ -159,6 +159,28 @@ public class ViewController extends AView {
 
     }
 
+    public void openRequests(ActionEvent actionEvent) {
+        MessageModel model = new MessageModel();
+        MessagesViewController view=new MessagesViewController ();
+        MessagesController controller = new MessagesController(model,view);
+        view.setController(controller);
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            Parent root1 = fxmlLoader.load(getClass().getResource("/Messages.fxml").openStream());
+            MessagesViewController controller1=fxmlLoader.<MessagesViewController>getController();
+            controller1.setUser(user);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Messages:");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        }
+
+        catch (IOException e){
+
+        }
+
+    }
     public void openNewVacationForm(ActionEvent actionEvent) {
         VacationModel model = new VacationModel();
         SearchVacController view=new SearchVacController();
