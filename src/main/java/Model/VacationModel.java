@@ -26,7 +26,7 @@ public class VacationModel implements IModel{
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, String.valueOf(vacation.getUsername()));
+            pstmt.setString(1, String.valueOf(vacation.getSeller()));
 
 
                 pstmt.setString(2, vacation.getVarSubject());

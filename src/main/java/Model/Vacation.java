@@ -12,7 +12,7 @@ public class Vacation {
     private String varNumber;
     private String varTime;
     private String varDate;
-    private String username;
+    private String seller;
     private int id;
 
 
@@ -25,7 +25,7 @@ public class Vacation {
         this.varNumber = varNumber;
         this.varTime = varTime;
         this.varDate = varDate;
-        this.username = username;
+        this.seller = username;
         id=getFromDataBaseAndUpdate();
     }
 
@@ -61,8 +61,8 @@ public class Vacation {
         return varDate;
     }
 
-    public String getUsername() {
-        return username;
+    public String getSeller() {
+        return seller;
     }
 
     public int getFromDataBaseAndUpdate() {

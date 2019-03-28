@@ -161,7 +161,7 @@ public class SearchVacController extends AView {
                                 } else {
                                     btn.setOnAction(event -> {
                                         Vacation vacation = getTableView().getItems().get(getIndex());
-                                        if(user!=null&&!user.getUserName().equals(vacation.getUsername())) {//user get sell for himself
+                                        if(user!=null&&!user.getUserName().equals(vacation.getSeller())) {//user get sell for himself
                                             ChangeOrPayModel model = new ChangeOrPayModel();
                                             ChangeOrPayViewController view=new ChangeOrPayViewController ();
                                             ChangeOrPayController controller = new ChangeOrPayController(model,view);
@@ -192,7 +192,7 @@ public class SearchVacController extends AView {
                                                 errorAlert.setContentText("Please close all the windows,\n" +
                                                         "and sign in first. ");
                                             }
-                                            else if(user.getUserName().equals(vacation.getUsername())) {
+                                            else if(user.getUserName().equals(vacation.getSeller())) {
                                                 //the user can't buy from himself
                                                 errorAlert.setHeaderText("Its your vacation!");
                                                 errorAlert.setContentText("You can't buy you own vacation!");
