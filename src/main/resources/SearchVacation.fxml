@@ -30,7 +30,7 @@
                                    <Font size="16.0" />
                                </font>
                            </Label>
-                           <ComboBox fx:id="destination" layoutX="116.0" layoutY="-1.0" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="146.0" promptText="-None">
+                           <ComboBox fx:id="subject" layoutX="116.0" layoutY="-1.0" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="146.0" promptText="-None">
                                <items>
                                    <FXCollections fx:factory="observableArrayList">
                                        <String fx:value="-None" />
@@ -64,13 +64,14 @@
                             <children>
                                 <TableView id="mytableView" fx:id="vacTable" layoutX="2.0" maxWidth="1.7976931348623157E308" minHeight="200.0" prefHeight="448.0" prefWidth="1268.0" AnchorPane.bottomAnchor="-82.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn fx:id="destionationCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="נושא" />
-                                        <TableColumn id="fa" fx:id="adultCol" maxWidth="5000.0" minWidth="10.0" prefWidth="103.0" text="תת נושא" />
-                                        <TableColumn fx:id="childCol" maxWidth="5000.0" minWidth="9.0" prefWidth="84.0" text="תאריך" />
-                                        <TableColumn fx:id="babyCol" maxWidth="5000.0" minWidth="0.0" prefWidth="78.0" text="מחיר" />
-                                        <TableColumn fx:id="depDateCol" maxWidth="5000.0" minWidth="9.0" prefWidth="133.0" text="מספר כרטיסים" />
-                                        <TableColumn fx:id="withReturnCol" maxWidth="5000.0" minWidth="9.0" prefWidth="79.0" text="שעה" />
-                                        <TableColumn fx:id="returnDateCol" maxWidth="5000.0" minWidth="0.0" prefWidth="158.0" text="מיקום" />
+                                        <TableColumn fx:id="userNameCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="שם משתמש" />
+                                        <TableColumn fx:id="subjectCol" maxWidth="88.00001525878906" prefWidth="88.00001525878906" text="נושא" />
+                                        <TableColumn id="fa" fx:id="subTopicCol" maxWidth="5000.0" minWidth="10.0" prefWidth="103.0" text="תת נושא" />
+                                        <TableColumn fx:id="dateCol" maxWidth="5000.0" minWidth="9.0" prefWidth="84.0" text="תאריך" />
+                                        <TableColumn fx:id="priceCol" maxWidth="5000.0" minWidth="0.0" prefWidth="78.0" text="מחיר" />
+                                        <TableColumn fx:id="numberCol" maxWidth="5000.0" minWidth="9.0" prefWidth="133.0" text="מספר כרטיסים" />
+                                        <TableColumn fx:id="timeCol" maxWidth="5000.0" minWidth="9.0" prefWidth="79.0" text="שעה" />
+                                        <TableColumn fx:id="locationCol" maxWidth="5000.0" minWidth="0.0" prefWidth="158.0" text="מיקום" />
                                     </columns>
                                 </TableView>
                             </children>

@@ -52,6 +52,8 @@ public class SearchVacController extends AView {
     @FXML
     private TableColumn numberCol;
     @FXML
+    private TableColumn priceCol;
+    @FXML
     private TableColumn locationCol;
     @FXML
     private TableColumn dateCol;
@@ -239,7 +241,7 @@ public class SearchVacController extends AView {
         {
 
 
-            idCol.setCellValueFactory(new PropertyValueFactory<>("Id"));
+            priceCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
             vacTable.setItems(vacObsList);
 
             userNameCol.setCellValueFactory(new PropertyValueFactory<>("UserName"));
