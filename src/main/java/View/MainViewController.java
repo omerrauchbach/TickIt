@@ -47,6 +47,7 @@ public class MainViewController extends AView {
         }
         else {
             if(true){//success
+                String ans = user.getText();
                 user.setText("");
                 password.setText("");
                 IModel model = new Model();
@@ -57,7 +58,7 @@ public class MainViewController extends AView {
                     FXMLLoader fxmlLoader=new FXMLLoader();
                     Parent root1 = fxmlLoader.load(getClass().getResource("/View.fxml").openStream());
                     ViewController controller1=fxmlLoader.<ViewController>getController();
-                    controller1.setUser(new User(user.getText()));
+                    controller1.setUser(new User(ans));
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
                     stage.setTitle("Welcome to Tick-It ! ! !");
@@ -85,11 +86,11 @@ public class MainViewController extends AView {
         if(userName.contains("@post.bgu.ac.il") && userName.length()>10 && userName.charAt(0) != '@' &&
                 userName.charAt(userName.length()-1) != '@'){
            int indexUser = userName.indexOf("@");
-           name = userName.substring(0,indexUser-1);
-           email = userName.substring(indexUser+1 , userName.length()-1);
+           name = userName.substring(0,indexUser);
+           email = userName.substring(indexUser+1 , userName.length());
            if(email.equals("post.bgu.ac.il")&& name.length()>3)
                 return true;
         }
-        return true;
+        return false;
     }
 }
