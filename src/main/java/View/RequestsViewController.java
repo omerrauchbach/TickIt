@@ -18,7 +18,7 @@ import java.util.Optional;
 public class RequestsViewController extends AView {
 
     @FXML private AnchorPane pane;
-    public TableView<Message> tableView;
+    TableView<Message> tableView;
 
 
     User user_Reciever; //own- he is now the reciever
