@@ -38,7 +38,6 @@ public class LoginViewController extends AView{
             errorAlert.setHeaderText("Error!");
             errorAlert.setContentText("One or more of the fields are'nt filled.\n Fill all fields and try again.");
             errorAlert.showAndWait();
-
         }
         else {
             boolean flag = loginController.login(user.getText(),password.getText());
