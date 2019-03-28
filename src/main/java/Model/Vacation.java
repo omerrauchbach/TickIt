@@ -4,7 +4,6 @@ import java.sql.*;
 
 public class Vacation {
 
-
     private String varSubject;
     private String varSubTopic;
     private String varPrice;

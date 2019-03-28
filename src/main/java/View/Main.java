@@ -29,10 +29,9 @@ public class Main extends Application {
         try {
             FXMLLoader fxmlLoader=new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource("/Main.fxml").openStream());
-            primaryStage.setTitle("Vacation4U");
+            primaryStage.setTitle("Tick-it");
             Scene scene=new Scene(root);
             primaryStage.setScene(scene);
-
             primaryStage.show();
         }
         catch(Exception e){
@@ -163,21 +162,20 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
-    public static void createNewMessageTable() {
+
+    public static void createNewRequestTable() {
         // SQLite connection string
         String url = "jdbc:sqlite:Users.db";
 
         // SQL statement for creating a new table
 
-        String sql = "CREATE TABLE IF NOT EXISTS Messages (\n"
-                + "   id text,\n"
+        String sql = "CREATE TABLE IF NOT EXISTS Requests (\n"
                 + "   sender text NOT NULL,\n"
                 + "   reciever text NOT NULL,\n"
                 + "   seen integer NOT NULL,\n"
                 + "   kind integer NOT NULL,\n"
                 + "   vacation_ID_source integer NOT NULL,\n"
                 + "   vacation_ID_dest integer NOT NULL\n"
-
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
@@ -188,6 +186,31 @@ public class Main extends Application {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void createNewMessageTable() {
+        // SQLite connection string
+        String url = "jdbc:sqlite:Users.db";
+
+        // SQL statement for creating a new table
+
+        String sql = "CREATE TABLE IF NOT EXISTS Messages (\n"
+                + "   sender text NOT NULL,\n"
+                + "   reciever text NOT NULL,\n"
+                + "   seen integer NOT NULL,\n"
+                + "   kind integer NOT NULL,\n"
+                + "   vacation_ID_source integer NOT NULL,\n"
+                + "   vacation_ID_dest integer NOT NULL\n"
+                + ");";
+
+        try (Connection conn = DriverManager.getConnection(url);
+             Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void createdetailsTable() {
         // SQLite connection string
         String url = "jdbc:sqlite:Users.db";
@@ -242,6 +265,7 @@ public class Main extends Application {
         createNewVacationTable();
         createNewPaymentTable();
         createNewMessageTable();
+        createNewRequestTable();
         createdetailsTable();
         launch(args);
     }

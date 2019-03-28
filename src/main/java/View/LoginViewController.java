@@ -38,7 +38,6 @@ public class LoginViewController extends AView{
             errorAlert.setHeaderText("Error!");
             errorAlert.setContentText("One or more of the fields are'nt filled.\n Fill all fields and try again.");
             errorAlert.showAndWait();
-
         }
         else {
             boolean flag = loginController.login(user.getText(),password.getText());
@@ -56,8 +55,10 @@ public class LoginViewController extends AView{
                     controller1.setUser(new User(user.getText()));
                     stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setTitle("Welcome to Vacation 4 U");
-                    stage.setScene(new Scene(root1,500,500));
+                    stage.setTitle("Welcome to Tick-It ! ! !");
+                    Scene scene1 = new Scene(root1,484,400);
+                    scene1.getStylesheets().add(getClass().getResource("/stylesheet.css").toExternalForm());
+                    stage.setScene(scene1);
                     stage.show();
                 }
                 catch (IOException e){

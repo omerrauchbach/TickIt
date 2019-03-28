@@ -7,12 +7,16 @@ import Model.IModel;
 import Model.LoginModel;
 import Model.VacationModel;
 import Model.Model;
+import Model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,144 +25,74 @@ import java.io.IOException;
 
 public class MainViewController extends AView {
 
-    Stage loginStage;
-
-
-    /**
-    * @param event
-    * @throws IOException
-    * opens the form to make new user
-    */
-@FXML
-    private void openCreateForm(ActionEvent event){
-    IModel model = new Model();
-    MainViewController mainview=new MainViewController();
-    Controller controller = new Controller(model,mainview);
-    mainview.setController(controller);
-        try{
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Create.fxml").openStream());
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("CreateMessage User");
-            stage.setScene(new Scene(root1,500,500));
-            stage.show();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
 
     @FXML
-    private void openLoginForm(){
-
-        LoginModel model2=new LoginModel();
-        LoginViewController loginView=new LoginViewController();
-        LoginController loginController=new LoginController(model2,loginView);
-        loginView.setController(loginController);
-
-
-        try{
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Login.fxml").openStream());
-            loginStage = new Stage();
-
-            loginStage.initModality(Modality.APPLICATION_MODAL);
-            loginStage.setTitle("Login");
-           loginStage.setScene(new Scene(root1));
-            loginStage.show();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-    }
-  
+    public TextField user;
     @FXML
-    private void openReadForm(){
-        try{
-            Stage stage = new Stage();
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root = fxmlLoader.load(getClass().getResource("/Read.fxml").openStream());
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Vacation4U - ReadUser");
-            stage.setScene(new Scene(root, 500, 500));
-            stage.show();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
+    public PasswordField password;
 
 
     /**
      *
-     * @param event
-     * the function opens the update form of the user
      */
-    @FXML
-    private void openUpdateForm(ActionEvent event){
-        try{
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Update.fxml").openStream());
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            //stage.initStyle(StageStyle.UNDECORATED);
-            stage.setTitle("UpdateUser User");
-            stage.setScene(new Scene(root1));
-            stage.show();
+    public void Login(ActionEvent actionEvent){
+
+        LoginController loginController=(LoginController)this.controller;
+        if(user.getText().length()==0||password.getText().length()==0){
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Error!");
+            errorAlert.setContentText("One or more of the fields are'nt filled.\n Fill all fields and try again.");
+            errorAlert.showAndWait();
         }
-        catch (IOException e){
-            e.printStackTrace();
+        else if(!validUserName(user.getText())){
+            Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+            errorAlert.setHeaderText("Error!");
+            errorAlert.setContentText("Unvalid user name");
+            errorAlert.showAndWait();
+        }
+        else {
+            if(true){//success
+                IModel model = new Model();
+                ViewController mainview=new ViewController();
+                Controller controller = new Controller(model,mainview);
+                mainview.setController(controller);
+                try{
+                    FXMLLoader fxmlLoader=new FXMLLoader();
+                    Parent root1 = fxmlLoader.load(getClass().getResource("/View.fxml").openStream());
+                    ViewController controller1=fxmlLoader.<ViewController>getController();
+                    controller1.setUser(new User(user.getText()));
+                    Stage stage = new Stage();
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.setTitle("Welcome to Tick-It ! ! !");
+                    Scene scene1 = new Scene(root1,480,400);
+                    scene1.getStylesheets().add(getClass().getResource("/stylesheet.css").toExternalForm());
+                    stage.setScene(scene1);
+                    stage.show();
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+            else{//failure
+                this.ShowAlert();
+            }
         }
 
     }
 
-    /**
-     *
-     * @param event by choosing the delete option in view.fxml
-     *              The function open new scene.
-     */
-    @FXML
-    private void openDeleteForm(ActionEvent event) {
-        try {
-            FXMLLoader fxmlLoader=new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Delete.fxml").openStream());
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            //stage.initStyle(StageStyle.UNDECORATED);
-            stage.setTitle("DeleteForm");
-            stage.setScene(new Scene(root1));
-            stage.show();
+    private Boolean validUserName(String userName){
+
+        String name ;
+        String email;
+        if(userName.contains("@post.bgu.ac.il") && userName.length()>10 && userName.charAt(0) != '@' &&
+                userName.charAt(userName.length()-1) != '@'){
+           int indexUser = userName.indexOf("@");
+           name = userName.substring(0,indexUser-1);
+           email = userName.substring(indexUser+1 , userName.length()-1);
+           if(email.equals("post.bgu.ac.il")&& name.length()>3)
+                return true;
         }
-        catch(IOException e){
-            e.printStackTrace();
-
-        }
-    }
-
-    @FXML
-    private void startSearch(ActionEvent event) {
-        VacationModel model2=new VacationModel();
-        SearchVacController loginView=new SearchVacController();
-        VacationController loginController=new VacationController(null,model2,loginView);
-        loginView.setController(loginController);
-        FXMLLoader fxmlLoader=new FXMLLoader();
-        Parent root = null;
-        try {
-            root = fxmlLoader.load(getClass().getResource("/SearchVacation.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Stage stage = new Stage();
-        Scene scene = new Scene(root);
-
-        stage.setTitle("Search Vacation");
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.setScene(scene);
-        stage.show();
-
+        return true;
     }
 }

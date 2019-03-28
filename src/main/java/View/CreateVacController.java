@@ -43,7 +43,8 @@ public class CreateVacController extends AView {
         VacationController controller = (VacationController) this.controller;
         controller.Create(varSubject,varSubTopic,varPrice,varLocation,varNumber,varTime,varDate);
 
-        this.ShowAlert();
+
+            this.ShowAlert();
 
 
     }
