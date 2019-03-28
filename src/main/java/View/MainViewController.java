@@ -63,7 +63,7 @@ public class MainViewController extends AView {
                     controller1.setUser(new User(user.getText()));
                     Stage stage = new Stage();
                     stage.initModality(Modality.APPLICATION_MODAL);
-                    stage.setTitle("Welcome to Vacation 4 U");
+                    stage.setTitle("Welcome to TickIt-System!");
                     stage.setScene(new Scene(root1,500,500));
                     stage.show();
                 }
