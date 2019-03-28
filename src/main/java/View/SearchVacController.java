@@ -221,7 +221,7 @@ public class SearchVacController extends AView {
         String flightCompany = "", departureDate = "", backDate = "", baggageIncluded = "",
                 ticket = "", flightBackIncluded = "", vacationKind = "", hotelIncluded = "", hotelKind = "";
         int numOfTicketsAdult = -1, numOfTicketsChild = -1, numOfTicketsBaby = -1, rankOfHotel = -1;
-        /**get the information from the view objects:**/
+        /*get the information from the view objects:*/
         {
             if (subject.getValue() != null && !subject.getValue().equals("-None")) {
                 ticket = subject.getValue();
@@ -243,7 +243,6 @@ public class SearchVacController extends AView {
         dateCol.setCellValueFactory(cellData -> cellData.getValue().getVarDateProperty());
             timeCol.setCellValueFactory(cellData -> cellData.getValue().getVarTimeProperty());
             vacTable.setItems(vacObsList);
-
     }
 
     private EventHandler<ActionEvent> createBouncingEffect(double height) {
