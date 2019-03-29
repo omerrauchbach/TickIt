@@ -92,6 +92,7 @@ public class SearchVacController extends AView {
         TableColumn actionCol = new TableColumn("Action");
         actionCol.setCellValueFactory(new PropertyValueFactory<>("DUMMY"));
 
+
         Callback<TableColumn<Vacation, String>, TableCell<Vacation, String>> cellFactory
                 = //
                 new Callback<TableColumn<Vacation, String>, TableCell<Vacation, String>>() {
@@ -99,7 +100,7 @@ public class SearchVacController extends AView {
                     public TableCell call(final TableColumn<Vacation, String> param) {
                         final TableCell<Vacation, String> cell = new TableCell<Vacation, String>() {
 
-                            final Button btn = new Button("Submit a\nrequest");
+                            final Button btn = new Button("Request");
 
                             @Override
                             public void updateItem(String item, boolean empty) {
@@ -111,6 +112,7 @@ public class SearchVacController extends AView {
                                     btn.setOnAction(event -> {
                                         Vacation vacation = getTableView().getItems().get(getIndex());
                                         if(user!=null&&!user.getUserName().equals(vacation.getSeller())) {//user get sell for himself
+
                                             ChangeOrPayModel model = new ChangeOrPayModel();
                                             ChangeOrPayViewController view=new ChangeOrPayViewController ();
                                             ChangeOrPayController controller = new ChangeOrPayController(model,view);
