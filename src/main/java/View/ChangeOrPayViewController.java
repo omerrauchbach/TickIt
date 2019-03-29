@@ -58,7 +58,8 @@ public class ChangeOrPayViewController extends AView {
     }
 
     @FXML
-    private void PayCash(ActionEvent event) throws IOException {
+    private void PayCash(ActionEvent event) throws IOException {//buy
+
         /*
         Message message = new Message(user.getUserName(),vacation.getSeller(),3,vacation.getId(),0,0);
         changeOrPayController.PayWithCash(message);
@@ -69,7 +70,7 @@ public class ChangeOrPayViewController extends AView {
     }
 
     @FXML
-    private void ChangeVacation(ActionEvent event) throws IOException {
+    private void ChangeVacation(ActionEvent event) throws IOException {//trade
         /*
         if(listVacations.getItems().size()==0){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -95,4 +96,10 @@ public class ChangeOrPayViewController extends AView {
         }
         */
     }
+
+    @FXML
+    private void sendMessage(ActionEvent event) throws IOException {
+
+    }
+
 }

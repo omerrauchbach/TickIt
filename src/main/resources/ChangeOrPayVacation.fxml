@@ -7,37 +7,48 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ChangeOrPayViewController">
    <children>
-      <ImageView fitHeight="512.0" fitWidth="698.0" layoutX="-65.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="512.0" fitWidth="698.0" layoutX="-32.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@reka2.png" />
          </image>
       </ImageView>
-      <Button fx:id="payButton" layoutX="122.0" layoutY="109.0" mnemonicParsing="false" onAction="#PayCash" prefHeight="56.0" prefWidth="101.0" text="Pay cash">
+      <Button fx:id="payButton" layoutX="61.0" layoutY="99.0" mnemonicParsing="false" onAction="#PayCash" prefHeight="56.0" prefWidth="101.0" text="Buy">
          <font>
             <Font size="19.0" />
          </font></Button>
-      <Button fx:id="changeButton" layoutX="193.0" layoutY="276.0" mnemonicParsing="false" onAction="#ChangeVacation" prefHeight="56.0" prefWidth="101.0" text="Replace">
+      <Button fx:id="changeButton" layoutX="499.0" layoutY="100.0" mnemonicParsing="false" onAction="#ChangeVacation" prefHeight="56.0" prefWidth="101.0" text="Trade">
          <font>
             <Font size="21.0" />
          </font></Button>
-      <ComboBox fx:id="listVacations" layoutX="14.0" layoutY="291.0" prefWidth="150.0" />
-      <Label layoutX="25.0" layoutY="246.0" text="but before choose a vacation to replace with:">
+      <ComboBox fx:id="listVacations" layoutX="294.0" layoutY="115.0" prefWidth="150.0" />
+      <Label layoutX="25.0" layoutY="246.0">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="57.0" layoutY="68.0" text="Press here if you want to pay cash:">
+      <Label layoutX="57.0" layoutY="68.0" text="Buy the ticket:">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="25.0" layoutY="211.0" text="Press here if you want to replace vacations">
+      <Label layoutX="369.0" layoutY="68.0" text="Trade with your ticket:">
          <font>
             <Font name="Berlin Sans FB" size="18.0" />
          </font>
       </Label>
+      <Text layoutX="195.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Send a message to the seller:">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font>
+      </Text>
+      <Button layoutX="246.0" layoutY="294.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="56.0" prefWidth="109.0" text="Message">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
