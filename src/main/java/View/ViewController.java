@@ -122,7 +122,7 @@ public class ViewController extends AView {
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Search For Ticket");
-            Scene scene=new Scene(root1,800,600);
+            Scene scene=new Scene(root1,900,600);
             scene.getStylesheets().add(getClass().getResource("/home_stylesheet.css").toExternalForm());
             stage.setScene(scene);
             stage.show();
@@ -160,12 +160,12 @@ public class ViewController extends AView {
         view.setController(controller);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            Parent root1 = fxmlLoader.load(getClass().getResource("/Messages.fxml").openStream());
+            Parent root1 = fxmlLoader.load(getClass().getResource("/Requests.fxml").openStream());
             MessagesViewController controller1 = fxmlLoader.<MessagesViewController>getController();
             controller1.setUser(user);
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Messages:");
+            stage.setTitle("Requests:");
             stage.setScene(new Scene(root1));
             stage.show();
         } catch (IOException e) {

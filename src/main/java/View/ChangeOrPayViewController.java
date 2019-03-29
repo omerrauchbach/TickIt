@@ -3,6 +3,7 @@ package View;
 import Controllers.ChangeOrPayController;
 import Model.Message;
 import Model.User;
+import Model.Request;
 import Model.Vacation;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,14 +60,12 @@ public class ChangeOrPayViewController extends AView {
 
     @FXML
     private void PayCash(ActionEvent event) throws IOException {//buy
-
-        /*
-        Message message = new Message(user.getUserName(),vacation.getSeller(),3,vacation.getId(),0,0);
-        changeOrPayController.PayWithCash(message);
+        Request request=new Request(user.getUserName(),vacation.getSeller(), false, vacation.getId(),0,false);
+        changeOrPayController.PayWithCash(request);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText("A message send to the seller");
         alert.showAndWait();
-        */
+
     }
 
     @FXML

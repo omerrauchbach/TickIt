@@ -131,7 +131,9 @@ public class SearchVacController extends AView {
                                             Stage stage = new Stage();
                                             stage.initModality(Modality.APPLICATION_MODAL);
                                             stage.setTitle("Choose action");
-                                            stage.setScene(new Scene(root1, 500, 500));
+                                            Scene scene=new Scene(root1, 600, 500);
+                                            scene.getStylesheets().add(getClass().getResource("/home_stylesheet.css").toExternalForm());
+                                            stage.setScene(scene);
                                             stage.show();
                                         }
                                         else{

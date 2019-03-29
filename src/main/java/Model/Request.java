@@ -2,7 +2,7 @@ package Model;
 
 public class Request {
 
-    int requestId;
+    //int requestId;
     private String sender;
     private String receiver;
     private boolean closed;
@@ -17,8 +17,9 @@ public class Request {
     private boolean isTrade;
     private int requestedTicketId;
     private int offeredTicketId;
+    private static int requestId=1;
 
-    public Request(int requestId, String sender, String receiver, boolean closed, int requestedTicketId, int offeredTicketId, boolean isTrade) {
+    public Request(String sender, String receiver, boolean closed, int requestedTicketId, int offeredTicketId, boolean isTrade) {
         this.sender = sender;
         this.receiver = receiver;
         this.isTrade = isTrade;
@@ -27,6 +28,31 @@ public class Request {
         if (isTrade)
             this.offeredTicketId = offeredTicketId;
         this.requestId = requestId;
+        requestId++;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public boolean isClosed() {
+        return closed;
+    }
+
+    public boolean isTrade() {
+        return isTrade;
+    }
+
+    public int getRequestedTicketId() {
+        return requestedTicketId;
+    }
+
+    public int getOfferedTicketId() {
+        return offeredTicketId;
+    }
+
+    public int getRequestId() {
+        return requestId;
     }
 
     public boolean getClosed() {

@@ -19,24 +19,23 @@ public class ChangeOrPayModel implements IModel
         return conn;
     }
 
-    public void payWithCash(Message message){
-        /*
-        String sql = "INSERT INTO Messages(id, sender, reciever ,seen, vacation_ID_source,vacation_ID_dest, kind) VALUES(?,?,?,?,?,?,?)";
+    public void payWithCash(Request message){//buy
+
+        String sql = "INSERT INTO Requests(request_id, sender, reciever ,closed, trade,request_ticket_id, offered_ticket_id) VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, String.valueOf(message.getId()));
+            pstmt.setString(1, String.valueOf(message.getRequestId()));
             pstmt.setString(2, message.getSender());
             pstmt.setString(3, message.getReciever());
-            pstmt.setString(4, String.valueOf(message.getSeen()));
-            pstmt.setString(5, String.valueOf(message.getVacationIDSource()));
-            pstmt.setString(6, String.valueOf(message.getVacationIDDest()));
-            pstmt.setString(7, String.valueOf(message.getKind()));
+            pstmt.setString(4, String.valueOf(message.getClosed()));
+            pstmt.setString(5, String.valueOf(message.getisTrade()));
+            pstmt.setString(6, String.valueOf(message.getrequestedTicketId()));
+            pstmt.setString(7, String.valueOf(message.getOfferedTicketId()));
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        */
     }
 
     /**
